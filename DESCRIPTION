@@ -1,0 +1,15 @@
+Package: abjutils
+Title: Ferramentas jurimetricas
+Description: ferramentas
+Version: 0.0.1
+Author: Athos Damiani <adamiani@abjur.org.br>
+Maintainer: Julio Trecenti <jtrecenti@abjur.org.br>
+License: MIT
+Imports:
+    stringr,
+    XML,
+    httr
+Depends:
+    stringr,
+    XML,
+    httr

@@ -1,0 +1,8 @@
+export("+")
+export(ggbarplot)
+export(ggboxplot)
+export(lsos)
+export(pega_metadados_tjsp)
+export(pega_mov_tjsp)
+export(rm_accent)
+export(tabela)
