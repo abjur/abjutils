@@ -8,9 +8,11 @@ License: MIT
 Imports:
     stringr,
     XML,
-    httr
+    httr,
+    lubridate
 Depends:
     stringr,
     XML,
     httr,
-    dplyr
+    dplyr,
+    lubridate
