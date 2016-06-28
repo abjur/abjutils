@@ -7,12 +7,9 @@ Maintainer: Julio Trecenti <jtrecenti@abjur.org.br>
 License: MIT
 Imports:
     stringr,
-    XML,
     httr,
-    lubridate
-Depends:
-    stringr,
-    XML,
-    httr,
+    lubridate,
+    rvest,
+    xml2,
     dplyr,
-    lubridate
+    ggplot2
