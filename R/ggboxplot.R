@@ -1,6 +1,11 @@
 #' Funcao.
 #' @export
-ggboxplot <- function(data, var.cont, var.categ=NULL, tit.cont=var.cont, tit.categ=var.categ){
+#' @import ggplot2
+#' @import grid
+ggboxplot <- function(data, var.cont, 
+                      var.categ = NULL, 
+                      tit.cont = var.cont, 
+                      tit.categ = var.categ){
   # ggboxplot - BOXPLOT PARA UMA VAR CONTÍNUA VS CONJUNTO DE CATEGÓRICAS
   # Função que desenha boxplot para uma var.cont para combinações de níveis das var.categ.
   # Parâmetros:
@@ -9,8 +14,6 @@ ggboxplot <- function(data, var.cont, var.categ=NULL, tit.cont=var.cont, tit.cat
   # var.cont -
   # tit.categ -
   # tit.cont -
-  require(ggplot2)
-  require(grid)
   var.categ <- as.character(var.categ)
   var.cont <- as.character(var.cont)
   Tot <- tapply(data[,var.cont],data[,var.categ],function(x)sum(!is.na(x)))

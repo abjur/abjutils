@@ -1,7 +1,15 @@
 #' teste
 #'
 #' @export
-ggbarplot <- function(data, var.categ.principal, var.categ.secundarias=NULL, tit.categ.principal = var.categ.principal, tit.categ.secundarias = var.categ.secundarias, pos_legenda=NULL){
+#' @import ggplot2
+#' @import grid
+#' @import reshape2
+ggbarplot <- function(data, 
+                      var.categ.principal, 
+                      var.categ.secundarias = NULL, 
+                      tit.categ.principal = var.categ.principal, 
+                      tit.categ.secundarias = var.categ.secundarias, 
+                      pos_legenda = NULL){
   # ggbarplot- GRÁFICO DE BARRAS PARA UMA VAR CATEG PRINCIPAL VS CONJUNTO DE VAR CATEGS EXPLICATIVAS
   # Função que desenha um grÁfico de barras para uma var.categ.principal para combinações de níveis das var.categ.secundarias.
   # Parâmetros:
@@ -12,9 +20,6 @@ ggbarplot <- function(data, var.categ.principal, var.categ.secundarias=NULL, tit
   # tit.categ.secundarias -
   # pos_legenda - EM TESTE! GAMBI! Recebe um objeto theme com especificações para a legenda.
   # OBS: só aceita uma var secundária por enquanto.
-  library(grid)
-  library(ggplot2)
-  library(reshape2)
   
   nVarsSec <- length(var.categ.secundarias)
   
