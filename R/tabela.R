@@ -1,4 +1,5 @@
 #' Funcao.
+#' 
 #' @export
 tabela <- function(x, label='variavel') {  
   tab1 <- data.frame(table(x))
