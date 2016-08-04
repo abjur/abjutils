@@ -10,7 +10,7 @@
 #' 
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
-  f <- dplyr::failwith(data_frame(result = 'erro'), fun)
+  f <- dplyr::failwith(tibble::data_frame(result = 'erro'), fun)
   tibble::data_frame(item = itens) %>%
     dplyr::distinct(item) %>%
     dplyr::group_by(item) %>%
