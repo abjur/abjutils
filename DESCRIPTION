@@ -14,5 +14,6 @@ Imports:
     dplyr,
     ggplot2,
     tibble,
-    tidyr
+    tidyr,
+    purrr
 RoxygenNote: 5.0.1
