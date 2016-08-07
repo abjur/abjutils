@@ -17,7 +17,7 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::do({
       if (runif(1) < p && verbose) print(.$item)
       d <- f(.$item, ...)
-      if (tibble::has_name(d, 'result')) d$result <- 'OK'
+      if (!tibble::has_name(d, 'result')) d$result <- 'OK'
       d
     }) %>%
     dplyr::ungroup()
