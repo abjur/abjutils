@@ -101,7 +101,7 @@ lsos <- function(..., n=10) {
 #' 
 #' @export
 github_template <- function(repo, org = '', path = '.', descr = NULL) {
-  if (is.null(desc)) desc <- list('Maintainer' = Sys.getenv('REPO_DESC'))
+  if (is.null(desc)) descr <- list('Maintainer' = Sys.getenv('REPO_DESC'))
   auth_token <- devtools::github_pat(quiet = TRUE)
   if (org != '') {
     url <- sprintf('https://api.github.com/orgs/%s/repos?access_token=%s', org, auth_token)
