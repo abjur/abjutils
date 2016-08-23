@@ -88,3 +88,33 @@ rm_accent <- function(x) {
 lsos <- function(..., n=10) {
   .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
 }
+
+
+#' Criar repositório e template de R-package
+#' 
+#' Só funciona se tiver um \code{Sys.getenv("GITHUB_PAT")}.
+#' 
+#' @param repo nome do repo.
+#' @param org nome da organização.
+#' @param path caminho do repo.
+#' @param descr descrição do pacote. Se nulo, tentará pegar de \code{Sys.getenv('REPO_DESC')}.
+#' 
+#' @export
+github_template <- function(repo, org = '', path = '.', descr = NULL) {
+  if (is.null(desc)) desc <- list('Maintainer' = Sys.getenv('REPO_DESC'))
+  auth_token <- devtools::github_pat(quiet = TRUE)
+  if (org != '') {
+    url <- sprintf('https://api.github.com/orgs/%s/repos?access_token=%s', org, auth_token)
+  } else {
+    org <- 'jtrecenti'
+    url <- sprintf('https://api.github.com/user/repos?access_token=%s', auth_token)
+  }
+  httr::POST(url, body = list(
+    name = repo, auto_init = TRUE, license_template = 'mit'
+  ), encode = 'json')
+  system(sprintf('git clone https://github.com/%s/%s %s/%s', org, repo, path, repo))
+  if (!file.exists(path)) dir.create(path)
+  path_repo <- sprintf('%s/%s', path, repo)
+  devtools::setup(path_repo, descr)
+  devtools::use_data_raw(path_repo)
+}
