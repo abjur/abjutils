@@ -1,4 +1,9 @@
-#' Funcao.
+#' Frequency and Relative Frequency Tables
+#' 
+#' Produces a contingency table of the elements of a vector calculating relative frequencies as well.
+#' 
+#' @param x a vector.
+#' @param label the column name containing the levels of x.
 #' 
 #' @export
 tabela <- function(x, label='variavel') {  
@@ -8,6 +13,6 @@ tabela <- function(x, label='variavel') {
   tab3 <- tab3[order(tab3$Freq.y, decreasing=T),]
   tab3$Freq.y <- round(tab3$Freq.y,2)
   tab3 <- as.data.frame(rbind(as.matrix(tab3), c("Total", sum(tab1$Freq), "100.0")))
-  names(tab3) <- c(label, 'Frequência', '   %')
+  names(tab3) <- c(label, 'Freq\032ncia', '   %')
   tab3
 }

@@ -33,27 +33,9 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
 #' @export
 rm_accent <- function(x) {
   if (.Platform$OS.type == 'unix') {
-    gsub("`", "", iconv(x, to="ASCII//TRANSLIT"))
+    gsub("`", "", iconv(x, to = "ASCII//TRANSLIT"))
   } else {
-    if (!is.character(x)) x <- as.character(x)
-    symbols <- c(
-      acute = "áéíóúÁÉÍÓÚýÝ",
-      grave = "àèìòùÀÈÌÒÙ",
-      circunflex = "âêîôûÂÊÎÔÛ",
-      tilde = "ãõÃÕñÑ",
-      umlaut = "äëïöüÄËÏÖÜÿ",
-      cedil = "çÇ"
-    )
-    nudeSymbols <- c(
-      acute = "aeiouAEIOUyY",
-      grave = "aeiouAEIOU",
-      circunflex = "aeiouAEIOU",
-      tilde = "aoAOnN",
-      umlaut = "aeiouAEIOUy",
-      cedil = "cC"
-    )
-    accentTypes <- c("´","`","^","~","¨","ç")
-    return(chartr(paste(symbols, collapse = ""), paste(nudeSymbols, collapse = ""), x)) 
+    gsub("`", "", iconv(x, from = 'latin1', to="ASCII//TRANSLIT"))
   }
 }
 
