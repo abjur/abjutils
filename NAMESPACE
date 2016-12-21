@@ -3,7 +3,7 @@
 export(calc_dig)
 export(check_dig)
 export(dvec)
-export(github_template)
 export(lsos)
 export(rm_accent)
 export(tabela)
+importFrom(magrittr,"%>%")

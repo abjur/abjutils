@@ -13,6 +13,7 @@ Imports:
     dplyr,
     httr,
     tibble,
-    devtools
+    devtools,
+    magrittr
 RoxygenNote: 5.0.1
 Suggests: testthat
