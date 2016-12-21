@@ -2,11 +2,16 @@
 % Please edit documentation in R/tabela.R
 \name{tabela}
 \alias{tabela}
-\title{Funcao.}
+\title{Frequency and Relative Frequency Tables}
 \usage{
 tabela(x, label = "variavel")
 }
+\arguments{
+\item{x}{a vector.}
+
+\item{label}{the column name containing the levels of x.}
+}
 \description{
-Funcao.
+Produces a contingency table of the elements of a vector calculating relative frequencies as well.
 }
 
