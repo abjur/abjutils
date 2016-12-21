@@ -10,15 +10,9 @@ Depends:
 License: MIT + file LICENSE
 Imports:
     stringr,
-    httr,
-    lubridate,
-    rvest,
-    xml2,
     dplyr,
-    ggplot2,
+    httr,
     tibble,
-    tidyr,
-    purrr,
     devtools
 RoxygenNote: 5.0.1
 Suggests: testthat
