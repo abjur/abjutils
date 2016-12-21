@@ -23,7 +23,6 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::ungroup()
 }
 
-
 #' Remove acentos.
 #' 
 #' Remove os acentos da string.
@@ -70,7 +69,6 @@ rm_accent <- function(x) {
 lsos <- function(..., n=10) {
   .ls.objects(..., order.by="Size", decreasing=TRUE, head=TRUE, n=n)
 }
-
 
 #' Criar repositório e template de R-package
 #' 
