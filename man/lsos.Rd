@@ -7,7 +7,7 @@
 lsos(..., n = 10)
 }
 \arguments{
-\item{...}{outros parâmetros passados para \code{.ls.objects}.}
+\item{...}{outros parametros passados para \code{.ls.objects}.}
 
 \item{n}{apenas os n com maior tamanho.}
 }

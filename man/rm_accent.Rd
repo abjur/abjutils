@@ -2,14 +2,17 @@
 % Please edit documentation in R/utils.R
 \name{rm_accent}
 \alias{rm_accent}
-\title{Remove acentos.}
+\title{Remove accents.}
 \usage{
 rm_accent(x)
 }
 \arguments{
-\item{x}{texto ou vetor de textos.}
+\item{x}{A string vector}
+}
+\value{
+A version of x without non-ASCII characters.
 }
 \description{
-Remove os acentos da string.
+Remove accents from strings converting them to ASCII.
 }
 

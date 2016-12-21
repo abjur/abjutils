@@ -7,17 +7,17 @@
 dvec(fun, itens, ..., verbose = TRUE, p = 0.05)
 }
 \arguments{
-\item{fun}{função a ser aplicada em cada arquivo.}
+\item{fun}{funcao a ser aplicada em cada arquivo.}
 
 \item{itens}{character vector dos caminhos de arquivos a serem transformados.}
 
-\item{...}{outros parâmetros a serem passados para \code{fun}}
+\item{...}{outros parametros a serem passados para \code{fun}}
 
 \item{verbose}{se \code{TRUE} (default), mostra o item com probabilidade p.}
 
 \item{p}{probabilidade de imprimir mensagem.}
 }
 \description{
-Vetoriza um scraper (função) para um vetor de itens
+Vetoriza um scraper (funcao) para um vetor de itens
 }
 

@@ -1,10 +1,12 @@
 #' Vetorizando scrapers
 #'
-#' Vetoriza um scraper (função) para um vetor de itens
+#' Vetoriza um scraper (funcao) para um vetor de itens
 #'
-#' @param fun função a ser aplicada em cada arquivo.
+#' @importFrom magrittr %>%
+#'
+#' @param fun funcao a ser aplicada em cada arquivo.
 #' @param itens character vector dos caminhos de arquivos a serem transformados.
-#' @param ... outros parâmetros a serem passados para \code{fun}
+#' @param ... outros parametros a serem passados para \code{fun}
 #' @param verbose se \code{TRUE} (default), mostra o item com probabilidade p.
 #' @param p probabilidade de imprimir mensagem.
 #' 
@@ -15,7 +17,7 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::distinct(item) %>%
     dplyr::group_by(item) %>%
     dplyr::do({
-      if (runif(1) < p && verbose) print(.$item)
+      if (stats::runif(1) < p && verbose) print(.$item)
       d <- f(.$item, ...)
       if (!tibble::has_name(d, 'result')) d$result <- 'OK'
       d
@@ -64,7 +66,7 @@ rm_accent <- function(x) {
 
 #' Lista objetos.
 #' 
-#' @param ... outros parâmetros passados para \code{.ls.objects}.
+#' @param ... outros parametros passados para \code{.ls.objects}.
 #' @param n apenas os n com maior tamanho.
 #' 
 #' @export

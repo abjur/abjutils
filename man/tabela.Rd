@@ -7,11 +7,16 @@
 tabela(x, label = "variavel")
 }
 \arguments{
-\item{x}{a vector.}
+\item{x}{A vector.}
 
-\item{label}{the column name containing the levels of x.}
+\item{label}{Quoted name of the column to create in output .}
+}
+\value{
+A data.frame containing frequency and relative frequencies for the
+levels o x.
 }
 \description{
-Produces a contingency table of the elements of a vector calculating relative frequencies as well.
+Produces a contingency table of the elements of a vector calculating relative
+frequencies as well.
 }
 
