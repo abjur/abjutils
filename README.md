@@ -6,20 +6,16 @@ Funções úteis para a ABJ.
 ## Relatórios
 
 - `tabela` tabela de contingência em formato long, com frequências absolutas e relativas para uma resposta.
-- `ggbarplot` gráfico de barras para uma resposta categórica e até duas explicativas.
-- `ggboxplot` gráfico boxplot para uma resposta contínua e até duas explicativas.
 
 ## Utilidades
 
-- `rm_accent` ou `desacentuar` para tirar os acentos de um texto (vetorizado).
-- `lsos` lista objeto de forma elegante.
+- `rm_accent` para tirar os acentos de um texto (vetorizado). Foi implementada buscando compatibilidade tanto com Windows quanto com sistemas operacionais baseados em Unix.
+- `lsos` lista objetos do workspace de forma elegante.
+- `dvec` vetoriza *web scrapers*.
 
-## Bases de dados
+## Manipulação de números de processo
 
-- `br_uf_map`: para plotar o mapa do Brasil com ufs (fortified map).
-- `cadmun`: infos básicas dos municípios, incluindo lat e lon.
-- `dados_aj`: infos básicas de órgãos da justiça, obtido por raspagem do Atlas do Acesso à Justiça.
-- `dados_muni`: latitude e longitude dos municípios brasileiros.
-- `pnud_muni`: dados do PNUD a nível município, com dicionário em `pnud_siglas`.
-- `pnud_uf`: dados do PNUD a nível UF, com dicionário em `pnud_siglas`.
-- `pnud_siglas`: dicionário das variáveis das bases do PNUD.
+- `calc_dig` calcula o digito verificador de um número de processo no formato pelo Conselho Nacional de Justiça (CNJ) na [resolução 65/08](http://www.cnj.jus.br/images/stories/docs_cnj/resolucao/rescnj_65.pdf).
+- `check_dig` verifica se o digito verificador de um número de processo foi calculado corretamente.
+- `sample_cnj` produz números de processo aleatoriamente.
+- `proc_numbers` produz regex com diversos formatos de números de processo utilizados ao longo dos anos.
