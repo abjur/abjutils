@@ -22,7 +22,7 @@
 #' @export
 calc_dig <- function(num, build = FALSE) {
   
-  lengths <- string::str_length(num)
+  lengths <- stringr::str_length(num)
   
   if(max(lengths) != 18 | min(lengths) != 18){
     stop("Process codes without check digits should have 18 numerical digits.")
