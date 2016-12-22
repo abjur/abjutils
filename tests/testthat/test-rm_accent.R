@@ -1,4 +1,4 @@
-context("Test removal of non-ASCII characters.")
+context("Remove non-ASCII characters.")
 
 test_that("rm_accent is the converted version of a string with all non-ASCII characters removed.", {
   
