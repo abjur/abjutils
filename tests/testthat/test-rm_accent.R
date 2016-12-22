@@ -11,7 +11,7 @@ test_that("rm_accent is the converted version of a string with all non-ASCII cha
     #umlaut = "äëïöüÄËÏÖÜÿ"
     #cedil = "çÇ"
   } else {
-    acute = "\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00fd\u00dd"
+    acute = iconv("\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00fd\u00dd", from = "utf-8", "latin1")
     #grave = "àèìòùÀÈÌÒÙ"
     #circunflex = "âêîôûÂÊÎÔÛ"
     #tilde = "ãõÃÕñÑ"
