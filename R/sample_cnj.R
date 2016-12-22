@@ -31,13 +31,13 @@ sample_cnj <- function(n, foros, anos, orgao, tr, first_dig = '0', sample_pars =
 
   # checks
   if(sample_pars){
-    foros <- sample(foros, n, replace = T)
-    anos <- sample(anos, n, replace = T)
-    orgao <- sample(orgao, n, replace = T)
-    tr <- sample(tr, n, replace = T)
+    foros <- build_params_list(foros, n)
+    anos <- build_params_list(anos, n)
+    orgao <- build_params_list(orgao, n)
+    tr <- build_params_list(tr, n)
   } else {
     
-    lengths <- sapply(c(foros, anos, orgao, tr), length)
+    lengths <- sapply(list(foros, anos, orgao, tr), length)
     
     max_length <- max(lengths)
     
@@ -51,7 +51,7 @@ sample_cnj <- function(n, foros, anos, orgao, tr, first_dig = '0', sample_pars =
       }
     }
   }
-  #end of
+  #end of checks
   
   serial_size <- ifelse(first_dig == "", 9, 8)
   
@@ -60,13 +60,16 @@ sample_cnj <- function(n, foros, anos, orgao, tr, first_dig = '0', sample_pars =
     stringr::str_sub(3,serial_size) %>%
     dplyr::data_frame() %>%
     stats::setNames("serial") %>% 
-    dplyr::mutate(n_processo = calc_dig(sprintf('%s%s%s%s%s%s',
-                                                              first_dig,
-                                                              serial,
-                                                              anos,
-                                                              orgao,
-                                                              tr,
-                                                              foro
-    ), build = T)) %>%
+    dplyr::mutate(no_cd_code = sprintf("%s%s%s%s%s%s", first_dig,
+                  serial, anos, orgao, tr, foros),
+      n_processo = calc_dig(no_cd_code, build = T)) %>%
     dplyr::select(n_processo)
+}
+
+build_params_list <- function(x, n){
+  if (length(x) > 1){
+    sample(as.character(x), n, replace = T)
+  } else {
+    rep(x, n)
+  }
 }
