@@ -1,1 +1,1 @@
-globalVariables(c('.','item','object.size',"%>%"))
+globalVariables(c(".","item","object.size","%>%", "n_processo"))
