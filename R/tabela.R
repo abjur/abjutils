@@ -1,4 +1,4 @@
-#' Frequency and Relative Frequency Tables
+#' Produce frequency and relative frequency Tables
 #' 
 #' Produces a contingency table of the elements of a vector calculating relative
 #' frequencies as well.

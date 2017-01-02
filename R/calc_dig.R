@@ -1,21 +1,21 @@
-#' Calculates check digits for brazilian process codes.
+#' Calculate check digits for brazilian process codes.
 #'
-#' \code{calc_dig} returns the check digit obtained from the other numbers of a
-#'  judicial process code in the format unified by the National Council of Justice.
-#'
+#' \code{calc_dig} returns the check digit of a
+#' judicial process code in the format unified by the brazillian
+#' National Council of Justice.
 #' @param num Ordered digits of the process code (including 0's)
 #' excluding the check digit.
 #' @param build Logical scalar. Should the function return the complete
 #' process number or only the check digits?
 #'
-#' @return The output consists in a string with two check digits or 
-#' the complete process number.
+#' @return Returns the check digits or the complete process number.
 #' 
 #' @examples
 #' 
 #' calc_dig("001040620018260004", build = TRUE)
 #' calc_dig("001040620018260004", build = FALSE)
 #' 
+#' #will fail
 #' \dontrun{
 #' calc_dig("00104062001826000", build = TRUE)
 #' }
@@ -42,7 +42,7 @@ calc_dig <- function(num, build = FALSE) {
   return(dig)
 }
 
-#' Validates check digits for brazilian process codes.
+#' Validate check digits for brazilian process codes.
 #'
 #' \code{check_dig} verifies if a check digit is correct.
 #' 
