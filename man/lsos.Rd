@@ -2,16 +2,30 @@
 % Please edit documentation in R/utils.R
 \name{lsos}
 \alias{lsos}
-\title{Lista objetos.}
+\title{Improved list of objects}
 \usage{
-lsos(..., n = 10)
+lsos(pos = 1, pattern, order.by = "Size", decreasing = TRUE,
+  head = TRUE, n = 10)
 }
 \arguments{
-\item{...}{outros parametros passados para \code{.ls.objects}.}
+\item{pos}{where to look for the object (see ‘Details’ in base::get documentation)}
 
-\item{n}{apenas os n com maior tamanho.}
+\item{pattern}{an optional regular expression. Only names matching pattern are returned. 
+glob2rx can be used to convert wildcard patterns to regular expressions.}
+
+\item{order.by}{how should the list objects be sorted? Assume one of the
+following values:  "Type", "Size" (default), "Rows" or "Columns".}
+
+\item{decreasing}{should the sorting be decreasing? Skippable parameter.}
+
+\item{head}{should the "head" function be used for printing? TRUE by default.}
+
+\item{n}{how many lines the "head" function should show? (only meaningful when 
+head = TRUE) 10 by default.
+
+Credit: Taken from:  http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session}
 }
 \description{
-Lista objetos.
+Elegantly list objects in a R session.
 }
 
