@@ -1,9 +1,15 @@
 Package: abjutils
-Title: Ferramentas jurimetricas
-Description: ferramentas que ajudam na vida da jurimetria.
+Type: Package
+Title: Useful tools for jurimetrical analysis used by the Brazilian Jurimetrics Association (BJA or ABJ in portuguese).
+Description: Implements functions for sampling and  basic manipulation of brazilian lawsuits identification numbers. Also implements functions for text cleaning, such as accentuation removal, and other general purpose tools used by BJA.
 Version: 0.1.0
-Author: Athos Damiani <adamiani@abjur.org.br>
-Maintainer: Julio Trecenti <jtrecenti@abjur.org.br>
+Authors@R: c(
+    person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
+    person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
+    person("Fernando", "Corrêa", role = c("aut","cre"), email = "fcorrea@abj.org.br"),
+    person(family = "Brazillian Jurimetrics Association", role = "cph"))
+Maintainer: Fernando Corrêa <fcorrea@abj.org.br>
+URL: https://github.com/abjur/abjutils
 LazyData: TRUE
 Depends:
     R (>= 3.3.1)
