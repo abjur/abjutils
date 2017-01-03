@@ -2,22 +2,23 @@
 % Please edit documentation in R/utils.R
 \name{dvec}
 \alias{dvec}
-\title{Vetorizando scrapers}
+\title{Vectorize functions}
 \usage{
 dvec(fun, itens, ..., verbose = TRUE, p = 0.05)
 }
 \arguments{
-\item{fun}{funcao a ser aplicada em cada arquivo.}
+\item{fun}{function to be iterated.}
 
-\item{itens}{character vector dos caminhos de arquivos a serem transformados.}
+\item{itens}{character vector of inputs.}
 
-\item{...}{outros parametros a serem passados para \code{fun}}
+\item{...}{outros other parameters for \code{fun}}
 
-\item{verbose}{se \code{TRUE} (default), mostra o item com probabilidade p.}
+\item{verbose}{should dvec print the current "item"?
+if \code{TRUE} (default) shows a message with probability p.}
 
-\item{p}{probabilidade de imprimir mensagem.}
+\item{p}{probability of printing a message. Only meaningful when verbose is \code{TRUE}.}
 }
 \description{
-Vetoriza um scraper (funcao) para um vetor de itens
+Iterate a function and wrap a dplyr::failtwith around it.
 }
 
