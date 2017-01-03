@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabela.R
 \name{tabela}
 \alias{tabela}
-\title{Frequency and Relative Frequency Tables}
+\title{Produce frequency and relative frequency Tables}
 \usage{
 tabela(x, label = "variavel")
 }
