@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{rm_accent}
 \alias{rm_accent}
-\title{Remove accents.}
+\title{Remove accentuation.}
 \usage{
 rm_accent(x)
 }
@@ -13,6 +13,6 @@ rm_accent(x)
 A version of x without non-ASCII characters.
 }
 \description{
-Remove accents from strings converting them to ASCII.
+Remove accented characters from strings converting them to ASCII.
 }
 
