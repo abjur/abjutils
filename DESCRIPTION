@@ -2,7 +2,7 @@ Package: abjutils
 Type: Package
 Title: Useful tools for jurimetrical analysis used by the Brazilian Jurimetrics Association (BJA or ABJ in portuguese).
 Description: Implements functions for sampling and  basic manipulation of brazilian lawsuits identification number. Also implements functions for text cleaning, such as accentuation removal, and other general purpose tools used by BJA.
-Version: 0.1.0
+Version: 0.0.1
 Authors@R: c(
     person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
     person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
