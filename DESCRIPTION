@@ -6,9 +6,9 @@ Version: 0.0.1
 Authors@R: c(
     person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
     person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
-    person("Fernando", "Corrêa", role = c("aut","cre"), email = "fcorrea@abj.org.br"),
+    person("Fernando", "Correa", role = c("aut","cre"), email = "fcorrea@abj.org.br"),
     person(family = "Brazillian Jurimetrics Association", role = "cph"))
-Maintainer: Fernando Corrêa <fcorrea@abj.org.br>
+Maintainer: Fernando Correa <fcorrea@abj.org.br>
 URL: https://github.com/abjur/abjutils
 LazyData: TRUE
 Depends:
