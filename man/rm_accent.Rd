@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{rm_accent}
 \alias{rm_accent}
-\title{Remove accentuation.}
+\title{Remove accentuation}
 \usage{
 rm_accent(x)
 }

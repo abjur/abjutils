@@ -8,24 +8,28 @@ lsos(pos = 1, pattern, order.by = "Size", decreasing = TRUE,
   head = TRUE, n = 10)
 }
 \arguments{
-\item{pos}{where to look for the object (see ‘Details’ in base::get documentation)}
+\item{pos}{where to look for the object (see ‘Details’ in base::get 
+documentation)}
 
-\item{pattern}{an optional regular expression. Only names matching pattern are returned. 
-glob2rx can be used to convert wildcard patterns to regular expressions.}
+\item{pattern}{an optional regular expression. Only names matching pattern are
+returned. glob2rx can be used to convert wildcard patterns to regular 
+expressions.}
 
-\item{order.by}{how should the list objects be sorted? Assume one of the
+\item{order.by}{how should the list objects be sorted? Assume one of the 
 following values:  "Type", "Size" (default), "Rows" or "Columns".}
 
 \item{decreasing}{should the sorting be decreasing? Skippable parameter.}
 
 \item{head}{should the "head" function be used for printing? TRUE by default.}
 
-\item{n}{how many lines the "head" function should show? (only meaningful when 
-head = TRUE) 10 by default.
-
-Credit: Taken from:  http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session}
+\item{n}{how many lines the "head" function should show? (only meaningful when
+head = TRUE) 10 by default.}
 }
 \description{
 Elegantly list objects in a R session.
+}
+\section{Credit}{
+
+Taken from http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
 }
 

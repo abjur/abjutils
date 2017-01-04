@@ -2,30 +2,30 @@
 % Please edit documentation in R/calc_dig.R
 \name{calc_dig}
 \alias{calc_dig}
-\title{Calculates check digits for brazilian process codes.}
+\title{Calculate check digits for brazilian lawsuits identification number}
 \usage{
 calc_dig(num, build = FALSE)
 }
 \arguments{
-\item{num}{Ordered digits of the process code (including 0's)
-excluding the check digit.}
+\item{num}{Ordered digits of the docket number (including 0's) excluding the 
+check digit.}
 
-\item{build}{Logical scalar. Should the function return the complete
-process number or only the check digits?}
+\item{build}{Logical scalar. Should the function return the complete docket
+number or only the check digits?}
 }
 \value{
-The output consists in a string with two check digits or 
-the complete process number.
+Returns the check digits or the complete identification number.
 }
 \description{
-\code{calc_dig} returns the check digit obtained from the other numbers of a
- judicial process code in the format unified by the National Council of Justice.
+\code{calc_dig} returns the check digit of a docker numbers in the format 
+unified by the brazillian National Council of Justice.
 }
 \examples{
 
 calc_dig("001040620018260004", build = TRUE)
 calc_dig("001040620018260004", build = FALSE)
 
+#will fail
 \dontrun{
 calc_dig("00104062001826000", build = TRUE)
 }

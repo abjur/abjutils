@@ -1,15 +1,14 @@
-#' Calculate check digits for brazilian process codes.
-#'
-#' \code{calc_dig} returns the check digit of a
-#' judicial process code in the format unified by the brazillian
-#' National Council of Justice.
-#' @param num Ordered digits of the process code (including 0's)
-#' excluding the check digit.
-#' @param build Logical scalar. Should the function return the complete
-#' process number or only the check digits?
-#'
-#' @return Returns the check digits or the complete process number.
+#' Calculate check digits for brazilian lawsuits identification number
 #' 
+#' \code{calc_dig} returns the check digit of a docker numbers in the format 
+#' unified by the brazillian National Council of Justice.
+#' @param num Ordered digits of the docket number (including 0's) excluding the 
+#'   check digit.
+#' @param build Logical scalar. Should the function return the complete docket
+#'   number or only the check digits?
+#'   
+#' @return Returns the check digits or the complete identification number.
+#'   
 #' @examples
 #' 
 #' calc_dig("001040620018260004", build = TRUE)
@@ -42,13 +41,14 @@ calc_dig <- function(num, build = FALSE) {
   return(dig)
 }
 
-#' Validate check digits for brazilian process codes.
-#'
+#' Validate check digits for brazilian lawsuits identification number
+#' 
 #' \code{check_dig} verifies if a check digit is correct.
 #' 
-#' @param num String scalar containing the complete process code.
-#' @return Logical scalar indicating wheter or not the check digit is well calculated.
-#' 
+#' @param num String scalar containing the complete docket number.
+#' @return Logical scalar indicating whether or not the check digit is well 
+#'   calculated.
+#'   
 #' @examples
 #' 
 #' check_dig("0005268-75.2013.8.26.0100")
@@ -62,7 +62,7 @@ check_dig <- function(num) {
   num <- stringr::str_replace_all(num, "[.-]","")
   
   if(stringr::str_length(num) != 20){
-    stop("Complete process codes should have 20 numerical digits.")
+    stop("Complete docket numbers should have 20 numerical digits.")
   }
   
   num_no_dig <- stringr::str_c(substr(num,1L,7L),substr(num, 10L, 20L))

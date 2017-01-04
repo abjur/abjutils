@@ -2,15 +2,16 @@
 % Please edit documentation in R/calc_dig.R
 \name{check_dig}
 \alias{check_dig}
-\title{Validates check digits for brazilian process codes.}
+\title{Validate check digits for brazilian lawsuits identification number}
 \usage{
 check_dig(num)
 }
 \arguments{
-\item{num}{String scalar containing the complete process code.}
+\item{num}{String scalar containing the complete docket number.}
 }
 \value{
-Logical scalar indicating wheter or not the check digit is well calculated.
+Logical scalar indicating whether or not the check digit is well 
+  calculated.
 }
 \description{
 \code{check_dig} verifies if a check digit is correct.

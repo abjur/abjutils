@@ -1,30 +1,29 @@
-#' Sample brazillian process codes.
-#'
-#' \code{sample_cnj} returns a data_frame containing a random sample of
-#' process codes sampled according to some regional and jurisdictional 
-#' parameters. The actual implementation supports both vector and scalar parameters,
-#' depending whether or not one wants to sample from a determined scope of
-#' process codes or wants to define the parameters for each sample unit.
-#'
-#' @param n a non negative integer giving the number of process codes to sample.
-#' @param foros a string scalar (or vector) with 4 characters. Identifies the juridical
-#' forum for the sampled codes.
-#' @param anos a string scalar (or vector) with 4 characters. Identifies the 
-#' distribution years of the sampled codes.
-#' @param orgao a string scalar (or vector) with 1 character. Identifies the jurisdiction
-#' of the sampled codes.
-#' @param tr a string scalar (or vector) with 2 characters. Identifies the court of 
-#' the sampled codes.
-#' @param first_dig the first digit of the process code. It's usually "0" or "1". 
-#' "0" as detault. The first digit will be sampled if first_dig = "".
-#' @param sample_pars a logical scalar.
-#' Does the parameters define the characteristics of the codes or should be sampled
-#' as well?
-#' @param return_df Logical scalar. Should the function return a df? If FALSE the
-#' function returns a vector.
-#'  
-#' @return A data_frame or a vector contaning a random sample of processes of size n.
+#' Sample brazilian lawsuits identification number
 #' 
+#' \code{sample_cnj} returns a data_frame containing a random sample of docket 
+#' numbers distributed according to some regional and jurisdictional parameters.
+#' The implementation supports both vector and scalar parameters, depending 
+#' whether or not the function should uniformly sample from a scope of docket
+#' numbers or one should define the parameters for each sample unit.
+#' 
+#' @param n a non negative integer giving the number of process codes to sample.
+#' @param foros a string scalar (or vector) with 4 characters. Identifies the 
+#'   juridical forum for the sampled codes.
+#' @param anos a string scalar (or vector) with 4 characters. Identifies the 
+#'   distribution years of the sampled codes.
+#' @param orgao a string scalar (or vector) with 1 character. Identifies the 
+#'   jurisdiction of the sampled codes.
+#' @param tr a string scalar (or vector) with 2 characters. Identifies the court
+#'   of the sampled codes.
+#' @param first_dig the first digit of the process code. It's usually "0" or 
+#'   "1". "0" as detault. The first digit will be sampled if first_dig = "".
+#' @param sample_pars a logical scalar. Does the parameters define the 
+#'   characteristics of the codes or should be sampled as well?
+#' @param return_df Logical scalar. Should the function return a df? If FALSE 
+#'   the function returns a vector.
+#'   
+#' @return A data_frame or a vector contaning a random sample of lawsuits ID's.
+#'   
 #' @examples
 #' 
 #' #sampling the parameters

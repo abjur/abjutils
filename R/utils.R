@@ -9,7 +9,8 @@
 #' @param ... outros other parameters for \code{fun}
 #' @param verbose should dvec print the current "item"?
 #' if \code{TRUE} (default) shows a message with probability p.
-#' @param p probability of printing a message. Only meaningful when verbose is \code{TRUE}.
+#' @param p probability of printing a message. Only meaningful when verbose is 
+#'   \code{TRUE}.
 #' 
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
@@ -26,7 +27,7 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::ungroup()
 }
 
-#' Remove accentuation.
+#' Remove accentuation
 #' 
 #' Remove accented characters from strings converting them to ASCII.
 #' 
@@ -43,22 +44,27 @@ rm_accent <- function(x) {
   }
 }
 
-#' Improved list of objects
-#' 
-#' Elegantly list objects in a R session.
-#' 
-#' @param pos where to look for the object (see ‘Details’ in base::get documentation)
-#' @param pattern	an optional regular expression. Only names matching pattern are returned. 
-#' glob2rx can be used to convert wildcard patterns to regular expressions.
-#' @param order.by how should the list objects be sorted? Assume one of the
-#' following values:  "Type", "Size" (default), "Rows" or "Columns".
-#' @param decreasing should the sorting be decreasing? Skippable parameter.
-#' @param head should the "head" function be used for printing? TRUE by default.
-#' @param n how many lines the "head" function should show? (only meaningful when 
-#' head = TRUE) 10 by default.
-#' 
-#' Credit: Taken from:  http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
-#' @export
+#'Improved list of objects
+#'
+#'Elegantly list objects in a R session.
+#'
+#'@param pos where to look for the object (see ‘Details’ in base::get 
+#'  documentation)
+#'@param pattern	an optional regular expression. Only names matching pattern are
+#'  returned. glob2rx can be used to convert wildcard patterns to regular 
+#'  expressions.
+#'@param order.by how should the list objects be sorted? Assume one of the 
+#'  following values:  "Type", "Size" (default), "Rows" or "Columns".
+#'@param decreasing should the sorting be decreasing? Skippable parameter.
+#'@param head should the "head" function be used for printing? TRUE by default.
+#'@param n how many lines the "head" function should show? (only meaningful when
+#'  head = TRUE) 10 by default.
+#'  
+#'@section Credit:
+#' Taken from http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
+#'  
+#'  
+#'@export
 lsos <- function (pos = 1, pattern, order.by = "Size",
                          decreasing=TRUE, head=TRUE, n=10) {
   napply <- function(names, fn) sapply(names, function(x)
