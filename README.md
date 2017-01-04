@@ -18,4 +18,3 @@ Funções úteis para a ABJ.
 - `calc_dig` calcula o digito verificador de um número de processo no formato pelo Conselho Nacional de Justiça (CNJ) na [resolução 65/08](http://www.cnj.jus.br/images/stories/docs_cnj/resolucao/rescnj_65.pdf).
 - `check_dig` verifica se o digito verificador de um número de processo foi calculado corretamente.
 - `sample_cnj` produz números de processo aleatoriamente.
-- `proc_numbers` produz regex com diversos formatos de números de processo utilizados ao longo dos anos.
