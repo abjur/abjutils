@@ -8,7 +8,7 @@ lsos(pos = 1, pattern, order.by = "Size", decreasing = TRUE,
   head = TRUE, n = 10)
 }
 \arguments{
-\item{pos}{where to look for the object (see ‘Details’ in base::get 
+\item{pos}{where to look for the object (see "Details" in base::get 
 documentation)}
 
 \item{pattern}{an optional regular expression. Only names matching pattern are

@@ -48,7 +48,7 @@ rm_accent <- function(x) {
 #'
 #'Elegantly list objects in a R session.
 #'
-#'@param pos where to look for the object (see ‘Details’ in base::get 
+#'@param pos where to look for the object (see "Details" in base::get 
 #'  documentation)
 #'@param pattern	an optional regular expression. Only names matching pattern are
 #'  returned. glob2rx can be used to convert wildcard patterns to regular 
