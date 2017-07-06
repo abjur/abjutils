@@ -59,4 +59,3 @@ anos = c("2014","2015","2016"), orgao = rep(8,3), tr = rep(26,3),
 first_dig = "0",sample_pars = FALSE, return_df = FALSE)
 
 }
-

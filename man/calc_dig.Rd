@@ -30,4 +30,3 @@ calc_dig("001040620018260004", build = FALSE)
 calc_dig("00104062001826000", build = TRUE)
 }
 }
-

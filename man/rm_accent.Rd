@@ -15,4 +15,3 @@ A version of x without non-ASCII characters.
 \description{
 Remove accented characters from strings converting them to ASCII.
 }
-

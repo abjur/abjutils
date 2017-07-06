@@ -22,4 +22,3 @@ if \code{TRUE} (default) shows a message with probability p.}
 \description{
 Iterate a function and wrap a dplyr::failtwith around it.
 }
-

@@ -86,3 +86,23 @@ lsos <- function (pos = 1, pattern, order.by = "Size",
     out <- head(out, n)
   out
 }
+
+#' Add pipe template
+#' 
+#' Adds pipe template to package documentation.
+#' 
+#' @param pkg package description, can be path or package name.
+#' 
+#' @export
+use_pipe <- function(pkg = '.') {
+  pkg <- devtools::as.package(pkg)
+  devtools::use_package('magrittr', pkg = pkg)
+  txt_pipe <- readLines(system.file('pipe-op.R', 
+                                    package = 'abjutils'))
+  cat(txt_pipe, file = paste0(pkg$path, '/R/utils.R'),
+      append = TRUE, sep = '\n')
+  devtools::document()
+}
+
+
+
