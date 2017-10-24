@@ -3,6 +3,7 @@
 export(calc_dig)
 export(check_dig)
 export(dvec)
+export(escape_unicode)
 export(lsos)
 export(rm_accent)
 export(rm_accent_from_names)

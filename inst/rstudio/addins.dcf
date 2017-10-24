@@ -1,0 +1,4 @@
+Name: Escape Unicode
+Description: Escapes all accented characters from a document.
+Binding: escape_unicode
+Interactive: false
