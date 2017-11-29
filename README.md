@@ -1,20 +1,54 @@
 abjutils [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/abjur/abjutils?branch=master&svg=true)](https://ci.appveyor.com/project/abjur/abjutils/branch/master) [![Travis-CI Build Status](https://travis-ci.org/abjur/abjutils.svg?branch=master)](https://travis-ci.org/abjur/abjutils)
 ========
 
-Funções úteis para a ABJ.
+## Overview
 
-## Relatórios
+`abjutils` is a toolkit with some useful functions widely used by the Brazilian
+Jurimetrics Association. Most functions help deal with lawsuit identification
+numbers (unified by CNJ, the National Council of Justice), while the rest are
+supposed to help ASCII-compliance and other formatting issues.
 
-- `tabela` tabela de contingência em formato long, com frequências absolutas e relativas para uma resposta.
+To install this package, simply run:
 
-## Utilidades
+```r
+# To install CRAN version
+install.packages("abjutils")
 
-- `rm_accent` para tirar os acentos de um texto (vetorizado). Foi implementada buscando compatibilidade tanto com Windows quanto com sistemas operacionais baseados em Unix.
-- `lsos` lista objetos do workspace de forma elegante.
-- `dvec` vetoriza *web scrapers*.
+# To install GitHub (dev) version
+install.packages("devtools")
+devtools::install_github("courtsbr/esaj")
+```
 
-## Manipulação de números de processo
+## Usage
 
-- `calc_dig` calcula o digito verificador de um número de processo no formato pelo Conselho Nacional de Justiça (CNJ) na [resolução 65/08](http://www.cnj.jus.br/images/stories/docs_cnj/resolucao/rescnj_65.pdf).
-- `check_dig` verifica se o digito verificador de um número de processo foi calculado corretamente.
-- `sample_cnj` produz números de processo aleatoriamente.
+`abjutils` has many functions, but the most useful are listed below
+
+- `rm_accent`: removes diacritics from a string
+
+- `escape_unicode`: replaces accented characters by their unicode-escaped values
+(also an add-in)
+
+- `dvec`: a safe and protected vectorizer useful for things such as web scrapers
+
+## Citations
+
+To cite this package, use `citation("abjutils")`:
+
+```
+To cite package ‘abjutils’ in publications use:
+
+  Julio Trecenti and Fernando Correa (2014). abjutils:
+  Useful Tools for Jurimetrical Analysis Used by the
+  Brazilian Jurimetrics Association. R package version
+  0.0.1. https://github.com/abjur/abjutils
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {abjutils: Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association},
+    author = {Julio Trecenti and Fernando Correa},
+    year = {2014},
+    note = {R package version 0.1.1},
+    url = {https://github.com/abjur/abjutils},
+  }
+```
