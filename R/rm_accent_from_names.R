@@ -8,6 +8,9 @@
 #' 
 #' @export
 rm_accent_from_names <- function(dat){
+  
+  warning("`rm_accent_from_names()` is deprecated; please use `purrr::set_names(rm_accent)` instead.", call. = FALSE)
+  
   old_names <- names(dat)
   new_names <- rm_accent(old_names)
   dupe_count <- sapply(1:length(new_names), function(i) {
