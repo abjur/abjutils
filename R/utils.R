@@ -1,16 +1,15 @@
-#' Vectorize functions
+#' @title Vectorize functions
 #'
-#' Iterate a function and wrap a dplyr::failtwith around it.
+#' @description Iterate a function and wrap a [dplyr::failwith()] around it.
 #'
 #' @importFrom magrittr %>%
 #'
-#' @param fun function to be iterated.
-#' @param itens character vector of inputs.
-#' @param ... outros other parameters for \code{fun}
-#' @param verbose should dvec print the current "item"?
-#' if \code{TRUE} (default) shows a message with probability p.
-#' @param p probability of printing a message. Only meaningful when verbose is 
-#'   \code{TRUE}.
+#' @param fun Function to be iterated
+#' @param itens Character vector of inputs
+#' @param ... Other parameters for `fun`
+#' @param verbose Should dvec print the current `item` (if `TRUE`, shows a
+#' message with probability `p`)?
+#' @param p Probability of printing a message
 #' 
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
@@ -27,13 +26,14 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::ungroup()
 }
 
-#' Remove accentuation
+#' @title Remove accentuation
 #' 
-#' Remove accented characters from strings converting them to ASCII.
+#' @description Remove accented characters from strings converting them to
+#' ASCII.
 #' 
 #' @param x A string vector
 #' 
-#' @return A version of x without non-ASCII characters.
+#' @return A version of `x` without non-ASCII characters
 #' 
 #' @export
 rm_accent <- function(x) {
@@ -44,29 +44,24 @@ rm_accent <- function(x) {
   }
 }
 
-#'Improved list of objects
+#' @title Improved list of objects
 #'
-#'Elegantly list objects in a R session.
+#' @description Elegantly list objects in a R session.
 #'
-#'@param pos where to look for the object (see "Details" in base::get 
-#'  documentation)
-#'@param pattern	an optional regular expression. Only names matching pattern are
-#'  returned. glob2rx can be used to convert wildcard patterns to regular 
-#'  expressions.
-#'@param order.by how should the list objects be sorted? Assume one of the 
-#'  following values:  "Type", "Size" (default), "Rows" or "Columns".
-#'@param decreasing should the sorting be decreasing? Skippable parameter.
-#'@param head should the "head" function be used for printing? TRUE by default.
-#'@param n how many lines the "head" function should show? (only meaningful when
-#'  head = TRUE) 10 by default.
+#' @param pos Where to look for the object (see "Details" in [base::get()]'s
+#' documentation)
+#' @param pattern	An optional regular expression to match names ([utils::glob2rx()]
+#' can be used to convert wildcard patterns to regular expressions)
+#' @param order.by Sort by `"Size"` (default), `"Type"`, `"Rows"` or `"Columns"`
+#' @param decreasing Should the sorting be decreasing?
+#' @param head Should [utils::head()] function be used for printing?
+#' @param n How many lines [utils::head()] function should show?
 #'  
-#'@section Credit:
-#' Taken from http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
-#'  
+#' @references http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
 #'  
 #'@export
 lsos <- function (pos = 1, pattern, order.by = "Size",
-                         decreasing=TRUE, head=TRUE, n=10) {
+                  decreasing=TRUE, head=TRUE, n=10) {
   napply <- function(names, fn) sapply(names, function(x)
     fn(get(x, pos = pos)))
   names <- ls(pos = pos, pattern = pattern)
@@ -87,11 +82,11 @@ lsos <- function (pos = 1, pattern, order.by = "Size",
   out
 }
 
-#' Add pipe template
+#' @title Add pipe template
 #' 
-#' Adds pipe template to package documentation.
+#' @description Adds pipe template to package documentation.
 #' 
-#' @param pkg package description, can be path or package name.
+#' @param pkg Package description (can be path or package name)
 #' 
 #' @export
 use_pipe <- function(pkg = '.') {
@@ -104,5 +99,6 @@ use_pipe <- function(pkg = '.') {
   devtools::document()
 }
 
-
-
+# Get rid of NOTEs
+globalVariables(c(
+  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code"))

@@ -7,18 +7,17 @@
 dvec(fun, itens, ..., verbose = TRUE, p = 0.05)
 }
 \arguments{
-\item{fun}{function to be iterated.}
+\item{fun}{Function to be iterated}
 
-\item{itens}{character vector of inputs.}
+\item{itens}{Character vector of inputs}
 
-\item{...}{outros other parameters for \code{fun}}
+\item{...}{Other parameters for \code{fun}}
 
-\item{verbose}{should dvec print the current "item"?
-if \code{TRUE} (default) shows a message with probability p.}
+\item{verbose}{Should dvec print the current \code{item} (if \code{TRUE}, shows a
+message with probability \code{p})?}
 
-\item{p}{probability of printing a message. Only meaningful when verbose is 
-\code{TRUE}.}
+\item{p}{Probability of printing a message}
 }
 \description{
-Iterate a function and wrap a dplyr::failtwith around it.
+Iterate a function and wrap a \code{\link[dplyr:failwith]{dplyr::failwith()}} around it.
 }

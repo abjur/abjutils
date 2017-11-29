@@ -1,31 +1,29 @@
-#' Sample brazilian lawsuits identification number
+#' @title Generate sample brazilian lawsuit identification numbers
 #' 
-#' \code{sample_cnj} returns a data_frame containing a random sample of docket 
+#' @description Returns a data frame containing a random sample of lawsuit 
 #' numbers distributed according to some regional and jurisdictional parameters.
 #' The implementation supports both vector and scalar parameters, depending 
-#' whether or not the function should uniformly sample from a scope of docket
+#' whether or not the function should uniformly sample from a scope of lawsuit
 #' numbers or one should define the parameters for each sample unit.
 #' 
-#' @param n a non negative integer giving the number of process codes to sample.
-#' @param foros a string scalar (or vector) with 4 characters. Identifies the 
-#'   juridical forum for the sampled codes.
-#' @param anos a string scalar (or vector) with 4 characters. Identifies the 
-#'   distribution years of the sampled codes.
-#' @param orgao a string scalar (or vector) with 1 character. Identifies the 
-#'   jurisdiction of the sampled codes.
-#' @param tr a string scalar (or vector) with 2 characters. Identifies the court
-#'   of the sampled codes.
-#' @param first_dig the first digit of the process code. It's usually "0" or 
-#'   "1". "0" as detault. The first digit will be sampled if first_dig = "".
-#' @param sample_pars a logical scalar. Does the parameters define the 
-#'   characteristics of the codes or should be sampled as well?
-#' @param return_df Logical scalar. Should the function return a df? If FALSE 
-#'   the function returns a vector.
+#' @param n A non negative integer giving the number of codes to generate
+#' @param foros One or more strings with 4 characters indicating the juridical
+#' forum for the sampled codes
+#' @param anos One or more strings with 4 characters indicating the distribution
+#' years of the generated codes
+#' @param orgao One or more strings with 1 character indicating the jurisdiction
+#' of the sampled codes.
+#' @param tr One or more strings with 1 character indicating the court of the
+#' generated codes
+#' @param first_dig The first digit of the lawsuit code (`"0"` by default and
+#' sampled if `""`)
+#' @param sample_pars Whether or not the parameters define the characteristics
+#' of the codes
+#' @param return_df Whether or not the function should return a data frame
 #'   
-#' @return A data_frame or a vector contaning a random sample of lawsuits ID's.
+#' @return A data frame or a vector contaning a random sample of lawsuits IDs
 #'   
-#' @examples
-#' 
+#' @examples {
 #' #sampling the parameters
 #' sample_cnj(3, foros = "0000",
 #' anos = "2015", orgao = 8, tr = 26,
@@ -40,10 +38,11 @@
 #' sample_cnj(3, foros = c("0000","0001","0002"),
 #' anos = c("2014","2015","2016"), orgao = rep(8,3), tr = rep(26,3),
 #' first_dig = "0",sample_pars = FALSE, return_df = FALSE)
+#' }
 #' 
 #' @export
-sample_cnj <- function(n, foros, anos, orgao, tr, first_dig = '0', sample_pars = T,
-                       return_df = T){
+sample_cnj <- function(n, foros, anos, orgao, tr, first_dig = '0',
+                       sample_pars = TRUE, return_df = TRUE){
 
   # checks
   if(sample_pars){

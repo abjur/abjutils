@@ -7,5 +7,7 @@
 escape_unicode()
 }
 \description{
-Escape accented characters in a document
+This function is used by the "Escape Unicode" add-in
+and removes all accented characters from the current file, replacing
+them by their equivalent Unicode-escaped values.
 }

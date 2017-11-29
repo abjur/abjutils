@@ -2,20 +2,20 @@
 % Please edit documentation in R/tabela.R
 \name{tabela}
 \alias{tabela}
-\title{Produce frequency and relative frequency Tables}
+\title{Produce frequency and relative frequency tables}
 \usage{
 tabela(x, label = "variavel")
 }
 \arguments{
-\item{x}{A vector.}
+\item{x}{A vector}
 
-\item{label}{Quoted name of the column to create in output .}
+\item{label}{Quoted name of the column to create in output}
 }
 \value{
-A data.frame containing frequency and relative frequencies for the
-levels o x.
+A data frame containing frequency and relative frequencies for
+the levels of x
 }
 \description{
-Produces a contingency table of the elements of a vector calculating relative
-frequencies as well.
+Produces a contingency table of the elements of a vector
+calculating relative frequencies as well.
 }

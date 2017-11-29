@@ -10,8 +10,9 @@ rm_accent(x)
 \item{x}{A string vector}
 }
 \value{
-A version of x without non-ASCII characters.
+A version of \code{x} without non-ASCII characters
 }
 \description{
-Remove accented characters from strings converting them to ASCII.
+Remove accented characters from strings converting them to
+ASCII.
 }

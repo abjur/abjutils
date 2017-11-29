@@ -7,7 +7,7 @@
 use_pipe(pkg = ".")
 }
 \arguments{
-\item{pkg}{package description, can be path or package name.}
+\item{pkg}{Package description (can be path or package name)}
 }
 \description{
 Adds pipe template to package documentation.

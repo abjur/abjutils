@@ -1,13 +1,13 @@
-#' Produce frequency and relative frequency Tables
+#' @title Produce frequency and relative frequency tables
 #' 
-#' Produces a contingency table of the elements of a vector calculating relative
-#' frequencies as well.
+#' @description Produces a contingency table of the elements of a vector
+#' calculating relative frequencies as well.
 #' 
-#' @param x A vector.
-#' @param label Quoted name of the column to create in output .
+#' @param x A vector
+#' @param label Quoted name of the column to create in output 
 #' 
-#' @return A data.frame containing frequency and relative frequencies for the
-#' levels o x.
+#' @return A data frame containing frequency and relative frequencies for
+#' the levels of x
 #' 
 #' @export
 tabela <- function(x, label='variavel') {  

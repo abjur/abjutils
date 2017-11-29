@@ -1,16 +1,16 @@
-#' Calculate check digits for brazilian lawsuits identification number
+#' @title Calculate digits for brazilian lawsuit identification numbers
 #' 
-#' \code{calc_dig} returns the check digit of a docker numbers in the format 
+#' @description Returns the check digit of a lawsuit numbers in the format 
 #' unified by the brazillian National Council of Justice.
-#' @param num Ordered digits of the docket number (including 0's) excluding the 
-#'   check digit.
-#' @param build Logical scalar. Should the function return the complete docket
-#'   number or only the check digits?
-#'   
-#' @return Returns the check digits or the complete identification number.
-#'   
-#' @examples
 #' 
+#' @param num Ordered digits of the lawsuit number (including 0's) excluding
+#' the check digit
+#' @param build Whether or not the function return the complete lawsuit
+#' number (or only the check digits)?
+#'   
+#' @return The check digits or the complete identification number
+#'   
+#' @examples {
 #' calc_dig("001040620018260004", build = TRUE)
 #' calc_dig("001040620018260004", build = FALSE)
 #' 
@@ -18,6 +18,8 @@
 #' \dontrun{
 #' calc_dig("00104062001826000", build = TRUE)
 #' }
+#' }
+#' 
 #' @export
 calc_dig <- function(num, build = FALSE) {
   
@@ -41,21 +43,23 @@ calc_dig <- function(num, build = FALSE) {
   return(dig)
 }
 
-#' Validate check digits for brazilian lawsuits identification number
+#' @title Validate check digits for brazilian lawsuits identification
+#' number
 #' 
-#' \code{check_dig} verifies if a check digit is correct.
+#' @description Verifies if a check digit is correct
 #' 
-#' @param num String scalar containing the complete docket number.
-#' @return Logical scalar indicating whether or not the check digit is well 
-#'   calculated.
+#' @param num String containing the complete lawsuit number
+#' 
+#' @return Whether or not the check digit is well calculated
 #'   
-#' @examples
-#' 
+#' @examples {
 #' check_dig("0005268-75.2013.8.26.0100")
 #' 
 #' \dontrun{
 #' check_dig("0005268-75.2013.8.26.100", build = TRUE)
 #' }
+#' }
+#' 
 #' @export
 check_dig <- function(num) {
   
