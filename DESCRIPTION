@@ -33,7 +33,8 @@ Imports:
   rstudioapi,
   scales,
   stringi,
-  glue
+  glue,
+  tidyr
 Suggests: testthat
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))

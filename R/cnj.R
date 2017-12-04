@@ -168,3 +168,19 @@ build_id <- function(id) {
   # Handle vectorization
   purrr::map_chr(extract_parts(id), build)
 }
+
+#' @title Separate a lawsuit ID column into its parts
+#' 
+#' @description Wrapper around [tidyr::separate()] that splits a column
+#' with lawsuit IDs into 6 columns with its parts (see [extract_parts()]).
+#' Note that the IDs must be built (see [build_id()]).
+#' 
+#' @param data A data frame
+#' @param col Column name or position (see [tidyr::separate()])
+#' @param ... Other arguments passed on to [tidyr::separate()]
+#' 
+#' @export
+separate_cnj <- function(data, col, ...) {
+  tidyr::separate(
+    data, col, into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...)
+}
