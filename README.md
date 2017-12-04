@@ -48,7 +48,7 @@ A BibTeX entry for LaTeX users is
     title = {abjutils: Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association},
     author = {Julio Trecenti and Fernando Correa},
     year = {2014},
-    note = {R package version 0.1.1},
+    note = {R package version 0.0.1},
     url = {https://github.com/abjur/abjutils},
   }
 ```

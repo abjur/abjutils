@@ -26,7 +26,7 @@ calc_dig <- function(num, build = FALSE) {
   lengths <- stringr::str_length(num)
   
   if(max(lengths) != 18 | min(lengths) != 18){
-    stop("Process codes without check digits should have 18 numerical digits.")
+    stop("Lawsuit IDs without check digits should have 18 numerical digits.")
   }
   
   NNNNNNN <- substr(num,  1L,  7L)
@@ -71,7 +71,100 @@ check_dig <- function(num) {
   
   num_no_dig <- stringr::str_c(substr(num,1L,7L),substr(num, 10L, 20L))
 
-  num_with_dig <- calc_dig(num_no_dig, build = T)
+  num_with_dig <- calc_dig(num_no_dig, build = TRUE)
   
   return(identical(num_with_dig, num))
+}
+
+
+#' @title Extract different parts from lawsuit ID
+#' 
+#' @description Given one or more lawsuit IDs, this function extracts one or more
+#' parts of the IDs given the following correspondence:
+#' \itemize{
+#'   \item "N": number
+#'   \item "D": verification digits
+#'   \item "A": year
+#'   \item "J": segment
+#'   \item "T": court
+#'   \item "O": origin
+#'   \item "": all of the above
+#' }
+#' 
+#' @param id One or more lawsuit IDs
+#' @param parts String or string vector with desired parts (see **description**)
+#' 
+#' @examples {
+#' extract_parts("001040620018260004", "N")
+#' extract_parts("001040620018260004", c("N", "A", "O"))
+#' }
+#' 
+#' @export
+extract_parts <- function(id, parts = "") {
+  
+  # Handle parts
+  parts <- unique(parts)
+  if (any(parts == "")) { parts <- c("N", "D", "A", "J", "T", "O") }
+  if (any(!(parts %in% c("N", "D", "A", "J", "T", "O")))) {
+    stop("Invalid parts")
+  }
+  
+  # Add verification digits to IDs that need them
+  id <- id %>%
+    clean_id() %>%
+    purrr::modify_if(~stringr::str_length(.x) == 18, calc_dig, build = TRUE) %>%
+    purrr::flatten_chr()
+  
+  # Extract parts for one ID
+  get_parts <- function(id, parts) {
+    
+    # For every part, run str_sub()
+    out <- c()
+    for (part in parts) {
+      
+      # Get range for str_sub()
+      range <- switch (part,
+        "N" = list(1, 7),
+        "D" = list(8, 9),
+        "A" = list(10, 13),
+        "J" = list(14, 14),
+        "T" = list(15, 16),
+        "O" = list(17, 20))
+      
+      # Add new element to list
+      out <- c(out, purrr::set_names(
+        stringr::str_sub(id, range[[1]], range[[2]]), part))
+    }
+    
+    return(out)
+  }
+
+  # Handle vectorization
+  purrr::map(id, get_parts, parts)
+}
+
+#' Remove separators from lawsuit IDs
+#' 
+#' @param id One or more lawsuit IDs
+#' 
+#' @export
+clean_id <- function(id) {
+  stringr::str_replace_all(id, pattern = "[\\-\\.]", replacement = "")
+}
+
+#' Add separators to lawsuit IDs
+#' 
+#' @param id One or more lawsuit IDs
+#' 
+#' @export
+build_id <- function(id) {
+  
+  # Build one ID
+  build <- function(id) {
+    stringr::str_c(id[1], "-", id[2], ".", id[3], ".",
+                   id[4], ".", id[5], ".", id[6])
+  }
+  
+  # Handle vectorization
+  purrr::map_chr(extract_parts(id), build)
 }
