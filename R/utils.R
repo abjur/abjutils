@@ -1,4 +1,4 @@
-#' @title Vectorize functions
+#' @title Vectorize functions (DEPRECATED)
 #'
 #' @description Iterate a function and wrap a [dplyr::failwith()] around it.
 #'
@@ -13,6 +13,9 @@
 #' 
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
+  
+  warn("Deprecated: please use `abjutils::carefully()` instead")
+  
   f <- dplyr::failwith(tibble::data_frame(result = 'erro'), fun)
   tibble::data_frame(item = itens) %>%
     dplyr::distinct(item) %>%
@@ -24,6 +27,71 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
       d
     }) %>%
     dplyr::ungroup()
+}
+
+#' @title Vectorized, parallel, safe and verbose funcion factory
+#'
+#' @description Wraps a function so that iterating over a set of inputs is
+#' easily paralellizable, and interruption-free.
+#'
+#' @param .f Function to be wrapped
+#' @param p Probability of function printing the index of the input it's
+#' currently processing
+#' @param cores Number of cores to use when interating over vectorized
+#' inputs
+#' 
+#' @examples
+#' \dontrun{
+#' # Function that takes a string and pastes two other strings
+#' # a its beginning and end respectivelly
+#' pad <- function(str, b = "", a = "") { paste0(b, str, a) }
+#' 
+#' # Create wrapped version of pad() that executes over 4 cores,
+#' # captures errors, and prints its current iteration with a
+#' # probability of 50%
+#' new_pad <- carefully(pad, p = 0.5, cores = 4)
+#' 
+#' # Execute new_pad() with some sample data
+#' new_pad(c("asdf", "poiu", "qwer"), b = "0", a = "1")
+#' }
+#' 
+#' @export
+carefully <- function(.f, p = 0.05, cores = 1) {
+  
+  # New, wrapped function
+  function(.x, ...) {
+    
+    # Wrap function
+    .f <- purrr::lift_dl(.f, ...)
+    .f_ <- purrr::possibly(.f, tibble::tibble(result = "ERROR"))
+    
+    # Create "closure" that carries .f_ and p
+    .c <- function(x, i) {
+      
+      # Print current index and apply function
+      if (runif(1) < p) { print(i) }
+      d <- .f_(x)
+      
+      # Convert into tibble if necessary
+      if (!is.data.frame(d)) { d <- dplyr::tibble(output = d) }
+      if (!tibble::has_name(d, "result")) { d$result <- "OK" }
+      
+      return(d)
+    }
+    
+    # Create cluster (and prepare to free it)
+    cl <- parallel::makeCluster(cores, outfile = "")
+    on.exit(parallel::stopCluster(cl))
+    
+    # Run function in parallel
+    out <- parallel::clusterMap(cl, .c, x = .x, i = seq_along(.x))
+    
+    # Bind rows and add input column
+    out <- dplyr::bind_rows(out)
+    out <- dplyr::bind_cols(tibble::tibble(input = .x), out)
+    
+    return(out)
+  }
 }
 
 #' @title Remove accentuation
