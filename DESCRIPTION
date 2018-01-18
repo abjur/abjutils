@@ -15,7 +15,7 @@ Authors@R: c(
   person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
   person("Fernando", "Correa", role = c("aut","cre"), email = "fcorrea@abj.org.br"),
   person("Caio", "Lente", role = "ctb", email = "ctlente@gmail.com"),
-  person(family = "Brazillian Jurimetrics Association", role = "cph"))
+  person(family = "Brazilian Jurimetrics Association", role = "cph"))
 Maintainer: Caio Lente <ctlente@gmail.com>
 URL: https://github.com/abjur/abjutils
 LazyData: TRUE

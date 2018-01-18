@@ -2,7 +2,7 @@
 % Please edit documentation in R/sample_cnj.R
 \name{sample_cnj}
 \alias{sample_cnj}
-\title{Generate sample brazilian lawsuit identification numbers}
+\title{Generate sample Brazilian lawsuit identification numbers}
 \usage{
 sample_cnj(n, foros, anos, orgao, tr, first_dig = "0", sample_pars = TRUE,
   return_df = TRUE)
@@ -31,7 +31,7 @@ of the codes}
 \item{return_df}{Whether or not the function should return a data frame}
 }
 \value{
-A data frame or a vector contaning a random sample of lawsuits IDs
+A data frame or a vector containing a random sample of lawsuits IDs
 }
 \description{
 Returns a data frame containing a random sample of lawsuit

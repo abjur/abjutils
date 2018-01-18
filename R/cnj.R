@@ -1,4 +1,4 @@
-#' @title Calculate digits for brazilian lawsuit identification numbers
+#' @title Calculate digits for Brazilian lawsuit identification numbers
 #' 
 #' @description Returns the check digit of a lawsuit numbers in the format 
 #' unified by the brazillian National Council of Justice.
@@ -43,7 +43,7 @@ calc_dig <- function(num, build = FALSE) {
   return(dig)
 }
 
-#' @title Validate check digits for brazilian lawsuits identification
+#' @title Validate check digits for Brazilian lawsuits identification
 #' number
 #' 
 #' @description Verifies if a check digit is correct

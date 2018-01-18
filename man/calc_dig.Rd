@@ -2,7 +2,7 @@
 % Please edit documentation in R/cnj.R
 \name{calc_dig}
 \alias{calc_dig}
-\title{Calculate digits for brazilian lawsuit identification numbers}
+\title{Calculate digits for Brazilian lawsuit identification numbers}
 \usage{
 calc_dig(num, build = FALSE)
 }

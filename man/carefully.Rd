@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{carefully}
 \alias{carefully}
-\title{Vectorized, parallel, safe and verbose funcion factory}
+\title{Vectorized, parallel, safe and verbose function factory}
 \usage{
 carefully(.f, p = 0.05, cores = 1)
 }
@@ -12,12 +12,12 @@ carefully(.f, p = 0.05, cores = 1)
 \item{p}{Probability of function printing the index of the input it's
 currently processing}
 
-\item{cores}{Number of cores to use when interating over vectorized
+\item{cores}{Number of cores to use when iterating over vectorized
 inputs}
 }
 \description{
 Wraps a function so that iterating over a set of inputs is
-easily paralellizable, and interruption-free.
+easily parallelizable, and interruption-free.
 }
 \examples{
 \dontrun{

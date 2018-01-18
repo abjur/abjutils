@@ -2,7 +2,7 @@
 % Please edit documentation in R/cnj.R
 \name{check_dig}
 \alias{check_dig}
-\title{Validate check digits for brazilian lawsuits identification
+\title{Validate check digits for Brazilian lawsuits identification
 number}
 \usage{
 check_dig(num)

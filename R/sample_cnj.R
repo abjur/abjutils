@@ -1,4 +1,4 @@
-#' @title Generate sample brazilian lawsuit identification numbers
+#' @title Generate sample Brazilian lawsuit identification numbers
 #' 
 #' @description Returns a data frame containing a random sample of lawsuit 
 #' numbers distributed according to some regional and jurisdictional parameters.
@@ -21,7 +21,7 @@
 #' of the codes
 #' @param return_df Whether or not the function should return a data frame
 #'   
-#' @return A data frame or a vector contaning a random sample of lawsuits IDs
+#' @return A data frame or a vector containing a random sample of lawsuits IDs
 #'   
 #' @examples {
 #' #sampling the parameters

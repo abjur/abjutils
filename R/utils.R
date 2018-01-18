@@ -29,15 +29,15 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::ungroup()
 }
 
-#' @title Vectorized, parallel, safe and verbose funcion factory
+#' @title Vectorized, parallel, safe and verbose function factory
 #'
 #' @description Wraps a function so that iterating over a set of inputs is
-#' easily paralellizable, and interruption-free.
+#' easily parallelizable, and interruption-free.
 #'
 #' @param .f Function to be wrapped
 #' @param p Probability of function printing the index of the input it's
 #' currently processing
-#' @param cores Number of cores to use when interating over vectorized
+#' @param cores Number of cores to use when iterating over vectorized
 #' inputs
 #' 
 #' @examples
