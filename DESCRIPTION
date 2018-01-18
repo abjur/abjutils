@@ -19,7 +19,7 @@ Authors@R: c(
 Maintainer: Caio Lente <ctlente@gmail.com>
 URL: https://github.com/abjur/abjutils
 LazyData: TRUE
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.4.2)
 License: MIT + file LICENSE
 Imports:
   stringr,
