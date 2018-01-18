@@ -1,6 +1,6 @@
 Package: abjutils
 Type: Package
-Date: 2014-02-27
+Date: 2018-01-18
 Title: Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association
 Description: The Brazilian Jurimetrics Association (ABJ in Portuguese,
   see <http://www.abjur.org.br/en/> for more information) is a non-profit
@@ -13,13 +13,13 @@ Version: 0.2.1
 Authors@R: c(
   person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
   person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
-  person("Fernando", "Correa", role = c("aut","cre"), email = "fcorrea@abj.org.br"),
-  person("Caio", "Lente", role = "ctb", email = "ctlente@gmail.com"),
+  person("Fernando", "Correa", role = "aut", email = "fcorrea@abj.org.br"),
+  person("Caio", "Lente", role = c("aut","cre"), email = "ctlente@gmail.com"),
   person(family = "Brazilian Jurimetrics Association", role = "cph"))
 Maintainer: Caio Lente <ctlente@gmail.com>
 URL: https://github.com/abjur/abjutils
 LazyData: TRUE
-Depends: R (>= 3.3.1)
+Depends: R (>= 3.4.3)
 License: MIT + file LICENSE
 Imports:
   stringr,

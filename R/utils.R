@@ -106,7 +106,7 @@ carefully <- function(.f, p = 0.05, cores = 1) {
 #' @export
 rm_accent <- function(x) {
   if (.Platform$OS.type == 'unix') {
-    gsub("`", "", iconv(x, to = "ASCII//TRANSLIT"))
+    stringr::str_replace_all(iconv(x, to = "ASCII//TRANSLIT"), "[`'\"^~]", "")
   } else {
     gsub("`", "", iconv(x, from = 'latin1', to="ASCII//TRANSLIT"))
   }
