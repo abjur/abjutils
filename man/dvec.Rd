@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{dvec}
 \alias{dvec}
-\title{Vectorize functions}
+\title{Vectorize functions (DEPRECATED)}
 \usage{
 dvec(fun, itens, ..., verbose = TRUE, p = 0.05)
 }

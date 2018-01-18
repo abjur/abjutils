@@ -2,7 +2,7 @@
 % Please edit documentation in R/rm_accent_from_names.R
 \name{rm_accent_from_names}
 \alias{rm_accent_from_names}
-\title{Remove accentuation from column names}
+\title{Remove accentuation from column names (DEPRECATED)}
 \usage{
 rm_accent_from_names(dat)
 }

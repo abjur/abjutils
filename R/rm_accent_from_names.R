@@ -1,4 +1,4 @@
-#' Remove accentuation from column names
+#' Remove accentuation from column names (DEPRECATED)
 #' 
 #' Remove accented characters from column names converting them to ASCII.
 #' 

@@ -22,7 +22,7 @@ fmt <- function(x) {
 
 fmt_p <- function(x) {
   if (length(x) == 0) return(character())
-  x <- plyr::round_any(x, scales:::precision(x) / 100)
+  x <- plyr::round_any(x, precision(x) / 100)
   x <- fmt(x * 100)
   paste0(x, "%")
 }

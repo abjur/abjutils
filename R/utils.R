@@ -14,7 +14,7 @@
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
   
-  warn("Deprecated: please use `abjutils::carefully()` instead")
+  warning("`dvec()` is deprecated; please use `abjutils::carefully()` instead.", call. = FALSE)
   
   f <- dplyr::failwith(tibble::data_frame(result = 'erro'), fun)
   tibble::data_frame(item = itens) %>%
@@ -167,78 +167,93 @@ use_pipe <- function(pkg = '.') {
   devtools::document()
 }
 
-#' @title Add a progress bar to any mapping function
+#' Mirror of scales:::precision()
 #' 
-#' @description This function wraps any function of the [purrr::map()] family,
-#' adding a progress bar to the iteration.
-#' 
-#' @param ..f A function, formula, or atomic vector (see [purrr::map()])
-#' 
-#' @examples { \dontrun {
-#' map_progress <- with_progress(purrr::map)
-#' map_progress(1:10, ~{ Sys.sleep(1); .x })
-#' }
+#' @param x See scales:::precision()
 #' 
 #' @export
-with_progress <- function(..f) {
-  function(x, .f, ...) {
-    .f <- purrr::as_mapper(.f)
-    p <- progress::progress_bar$new(total = length(x))
-    fun <- function(.x, ...) { p$tick(); .f(.x, ...) }
-    ..f(x, fun, ...)
-  }
+precision <- function(x) {
+  rng <- range(x, na.rm = TRUE)
+  span <- if (scales::zero_range(rng)) 
+    abs(rng[1])
+  else diff(rng)
+  if (span == 0) 
+    return(1)
+  10^floor(log10(span))
 }
-
-#' @title Add [purrr::possibly()] to any mapping function
-#' 
-#' @description This function wraps any function of the [purrr::map()] family,
-#' capturing side effects with [purrr::possibly()]. This is useful when only
-#' the side effects are desired as the returned values will be either `TRUE`
-#' or `FALSE` (if that iteration did/didn't work).
-#' 
-#' @param ..f A function, formula, or atomic vector (see [purrr::map()])
-#' 
-#' @export
-with_possibly <- function(..f) {
-  function(x, .f, ...) {
-    .f <- purrr::as_mapper(.f, ...)
-    .f_ <- purrr::possibly(function(.x, ...) { .f(.x, ...); TRUE }, FALSE, FALSE)
-    purrr::flatten_lgl(..f(x, .f_, ...))
-  }
-}
-
-#' @title Add parallelism to any mapping function
-#' 
-#' @description This function wraps any function of the [purrr::map()] family,
-#' parallelizing its iterations with [parallel::mcmapply()]. Note that flattening
-#' doesn't work, so `purrr::map_***()` becomes only `purrr::map()`.
-#' 
-#' @param ..f A function, formula, or atomic vector (see [purrr::map()])
-#' 
-#' @export
-with_parallelism <- function(..f) {
-  function(x, .f, ...) {
-    .f <- purrr::as_mapper(.f, ...)
-    .f_ <- purrr::partial(..f, .f = .f)
-    purrr::flatten(
-      parallel::mcmapply(.f_, x, MoreArgs = ..., SIMPLIFY = FALSE))
-  }
-}
-
-#' @title Add paralellism and [purrr::possibly()] to any mapping function
-#' 
-#' @description This function wraps any function of the [purrr::map()] family,
-#' running everything in parallel and capturing side effects with [purrr::possibly()].
-#' This is useful when only the side effects are desired as the returned values
-#' will be either `TRUE` or `FALSE` (if that iteration did/didn't work).
-#' 
-#' @param ..f A function, formula, or atomic vector (see [purrr::map()])
-#' 
-#' @export
-with_2p <- function(..f) {
-  with_parallelism(with_possibly(..f))
-}
+ 
+# #' @title Add a progress bar to any mapping function
+# #' 
+# #' @description This function wraps any function of the [purrr::map()] family,
+# #' adding a progress bar to the iteration.
+# #' 
+# #' @param ..f A function, formula, or atomic vector (see [purrr::map()])
+# #' 
+# #' @examples { \dontrun {
+# #' map_progress <- with_progress(purrr::map)
+# #' map_progress(1:10, ~{ Sys.sleep(1); .x })
+# #' }
+# #' 
+# #' @export
+# with_progress <- function(..f) {
+#   function(x, .f, ...) {
+#     .f <- purrr::as_mapper(.f)
+#     p <- progress::progress_bar$new(total = length(x))
+#     fun <- function(.x, ...) { p$tick(); .f(.x, ...) }
+#     ..f(x, fun, ...)
+#   }
+# }
+#
+# #' @title Add [purrr::possibly()] to any mapping function
+# #' 
+# #' @description This function wraps any function of the [purrr::map()] family,
+# #' capturing side effects with [purrr::possibly()]. This is useful when only
+# #' the side effects are desired as the returned values will be either `TRUE`
+# #' or `FALSE` (if that iteration did/didn't work).
+# #' 
+# #' @param ..f A function, formula, or atomic vector (see [purrr::map()])
+# #' 
+# #' @export
+# with_possibly <- function(..f) {
+#   function(x, .f, ...) {
+#     .f <- purrr::as_mapper(.f, ...)
+#     .f_ <- purrr::possibly(function(.x, ...) { .f(.x, ...); TRUE }, FALSE, FALSE)
+#     purrr::flatten_lgl(..f(x, .f_, ...))
+#   }
+# }
+# 
+# #' @title Add parallelism to any mapping function
+# #' 
+# #' @description This function wraps any function of the [purrr::map()] family,
+# #' parallelizing its iterations with [parallel::mcmapply()]. Note that flattening
+# #' doesn't work, so `purrr::map_***()` becomes only `purrr::map()`.
+# #' 
+# #' @param ..f A function, formula, or atomic vector (see [purrr::map()])
+# #' 
+# #' @export
+# with_parallelism <- function(..f) {
+#   function(x, .f, ...) {
+#     .f <- purrr::as_mapper(.f, ...)
+#     .f_ <- purrr::partial(..f, .f = .f)
+#     purrr::flatten(
+#       parallel::mcmapply(.f_, x, MoreArgs = ..., SIMPLIFY = FALSE))
+#   }
+# }
+# 
+# #' @title Add paralellism and [purrr::possibly()] to any mapping function
+# #' 
+# #' @description This function wraps any function of the [purrr::map()] family,
+# #' running everything in parallel and capturing side effects with [purrr::possibly()].
+# #' This is useful when only the side effects are desired as the returned values
+# #' will be either `TRUE` or `FALSE` (if that iteration did/didn't work).
+# #' 
+# #' @param ..f A function, formula, or atomic vector (see [purrr::map()])
+# #' 
+# #' @export
+# with_2p <- function(..f) {
+#   with_parallelism(with_possibly(..f))
+# }
 
 # Get rid of NOTEs
 globalVariables(c(
-  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code"))
+  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code", "warn"))

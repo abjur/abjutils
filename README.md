@@ -28,7 +28,7 @@ devtools::install_github("courtsbr/esaj")
 - `escape_unicode`: replaces accented characters by their unicode-escaped values
 (also an add-in)
 
-- `dvec`: a safe and protected vectorizer useful for things such as web scrapers
+- `carefully`: a safe and protected vectorizer useful for things such as web scrapers
 
 ## Citations
 
