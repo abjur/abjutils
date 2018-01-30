@@ -20,7 +20,7 @@ install.packages("abjutils")
 
 # To install GitHub (dev) version
 install.packages("devtools")
-devtools::install_github("courtsbr/esaj")
+devtools::install_github("abjur/abjutils")
 ```
 
 ## Usage
