@@ -36,7 +36,7 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
 #'
 #' @param .f Function to be wrapped
 #' @param p Probability of function printing the index of the input it's
-#' currently processing
+#' currently processing (if `cores > 1`)
 #' @param cores Number of cores to use when iterating over vectorized
 #' inputs
 #' 
@@ -69,26 +69,50 @@ carefully <- function(.f, p = 0.05, cores = 1) {
     .c <- function(x, i) {
       
       # Print current index and apply function
-      if (runif(1) < p) { print(i) }
+      if (runif(1) < p & cores > 1) { print(i) }
       d <- .f_(x)
       
       # Convert into tibble if necessary
-      if (!is.data.frame(d)) { d <- dplyr::tibble(output = d) }
+      if (!is.data.frame(d)) { d <- dplyr::tibble(output = list(d)) }
       if (!tibble::has_name(d, "result")) { d$result <- "OK" }
       
       return(d)
     }
     
-    # Create cluster (and prepare to free it)
-    cl <- parallel::makeCluster(cores, outfile = "")
-    on.exit(parallel::stopCluster(cl))
-    
-    # Run function in parallel
-    out <- parallel::clusterMap(cl, .c, x = .x, i = seq_along(.x))
+    if (cores > 1) {
+      
+      # Create cluster (and prepare to free it)
+      cl <- parallel::makeCluster(cores, outfile = "")
+      on.exit(parallel::stopCluster(cl))
+      
+      # Run function in parallel
+      out <- parallel::clusterMap(cl, .c, x = .x, i = seq_along(.x))
+    }
+    else {
+      
+      # Create progress bar
+      pb <- progress::progress_bar$new(total = length(.x))
+      
+      # Loop over .x
+      out <- list()
+      for (i in seq_along(.x)) {
+        pb$tick()
+        out[[i]] <- .c(.x[[i]], i)
+      }
+    }
     
     # Bind rows and add input column
     out <- dplyr::bind_rows(out)
     out <- dplyr::bind_cols(tibble::tibble(input = .x), out)
+    
+    # Unnest if possible
+    if (all(names(out) == c("input", "output", "result"))) {
+      if (all(lengths(out$output) == 1)) {
+        out <- out %>%
+          tidyr::unnest(output) %>%
+          dplyr::select(input, output, result)
+      }
+    }
     
     return(out)
   }

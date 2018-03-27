@@ -9,7 +9,7 @@ Description: The Brazilian Jurimetrics Association (ABJ in Portuguese,
   This package implements general purpose tools used by ABJ, such as functions
   for sampling and basic manipulation of Brazilian lawsuits identification
   number. It also implements functions for text cleaning, such as accentuation removal.
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
   person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
   person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
