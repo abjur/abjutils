@@ -63,7 +63,7 @@ carefully <- function(.f, p = 0.05, cores = 1) {
     
     # Wrap function
     .f <- purrr::lift_dl(.f, ...)
-    .f_ <- purrr::possibly(.f, tibble::tibble(result = "ERROR"))
+    .f_ <- purrr::safely(.f)
     
     # Create "closure" that carries .f_ and p
     .c <- function(x, i) {
@@ -72,9 +72,16 @@ carefully <- function(.f, p = 0.05, cores = 1) {
       if (runif(1) < p & cores > 1) { print(i) }
       d <- .f_(x)
       
+      # Handle error messages
+      if (!is.null(d$error)) {
+        d <- dplyr::tibble(result = as.character(d$error))
+      } else {
+        d <- d$result
+      }
+      
       # Convert into tibble if necessary
       if (!is.data.frame(d)) { d <- dplyr::tibble(output = list(d)) }
-      if (!tibble::has_name(d, "result")) { d$result <- "OK" }
+      if (!tibble::has_name(d, "result")) { d$result <- "Success" }
       
       return(d)
     }
