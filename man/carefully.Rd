@@ -10,7 +10,7 @@ carefully(.f, p = 0.05, cores = 1)
 \item{.f}{Function to be wrapped}
 
 \item{p}{Probability of function printing the index of the input it's
-currently processing}
+currently processing (if \code{cores > 1})}
 
 \item{cores}{Number of cores to use when iterating over vectorized
 inputs}

@@ -29,6 +29,60 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
     dplyr::ungroup()
 }
 
+# Get number of available cores
+get_cores <- purrr::partial(future::availableCores, constraints = "multicore")
+
+#' @title Verbose, parallel, and safe map-like
+#'
+#' @description Using the same argument notation as [purrr::map()], this function
+#' iterates over a list of inputs `.x`, applying `.f` to each element. It
+#' returns a tibble with the input, whether the function returned an error
+#' and the output.
+#'
+#' @importFrom magrittr %>%
+#'
+#' @param .x A list or atomic vector
+#' @param .f A function, formula, or atomic vector (see [purrr::map()])
+#' @param ... Other parameters passed on to [furrr::future_map()]
+#' @param .cores Number of cores to use when multiprocessing
+#' @param .progress Whether or not to display progress
+#' @param .flatten Whether or not to return only the output of the
+#' function (replaces errors with `NA`)
+#' 
+#' @export
+pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten = FALSE) {
+  
+  # Preserve execution plan
+  oplan <- future::plan()
+  on.exit(future::plan(oplan), add = TRUE)
+  
+  # Set execution plan to multicore
+  future::plan(future::multicore, workers = .cores)
+  
+  # Capture function side-effects
+  .f <- purrr::safely(purrr::as_mapper(.f))
+  
+  # Run future map
+  out <- furrr::future_map(.x, .f, ..., .progress = .progress)
+  
+  # Process output
+  pout <- out %>%
+    purrr::map(purrr::compact) %>%
+    purrr::flatten() %>%
+    tibble::tibble(id = seq_along(.x), return = names(.), output = .)
+  
+  # Flatten results if necessary
+  if (.flatten) {
+    pout <- pout %>%
+      dplyr::mutate(
+        output = dplyr::if_else(return == "error", list(NA), output)) %>%
+      tidyr::unnest() %>%
+      dplyr::pull(output)
+  }
+  
+  return(pout)
+}
+
 #' @title Vectorized, parallel, safe and verbose function factory
 #'
 #' @description Wraps a function so that iterating over a set of inputs is
