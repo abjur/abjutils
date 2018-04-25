@@ -21,6 +21,9 @@ pvec(.x, .f, ..., .cores = get_cores(), .progress = TRUE,
 \item{.flatten}{Whether or not to return only the output of the
 function (replaces errors with \code{NA})}
 }
+\value{
+A tibble with 3 columns: input, return, and output
+}
 \description{
 Using the same argument notation as \code{\link[purrr:map]{purrr::map()}}, this function
 iterates over a list of inputs \code{.x}, applying \code{.f} to each element. It

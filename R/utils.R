@@ -1,3 +1,13 @@
+
+#' Extract file name without extension
+#'
+#' @param x Character vector of file paths
+#' 
+#' @export
+file_sans_ext <- function(x) {
+  basename(tools::file_path_sans_ext(x))
+}
+
 #' @title Vectorize functions (DEPRECATED)
 #'
 #' @description Iterate a function and wrap a [dplyr::failwith()] around it.
@@ -48,6 +58,8 @@ get_cores <- purrr::partial(future::availableCores, constraints = "multicore")
 #' @param .progress Whether or not to display progress
 #' @param .flatten Whether or not to return only the output of the
 #' function (replaces errors with `NA`)
+#' 
+#' @return A tibble with 3 columns: input, return, and output
 #' 
 #' @export
 pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten = FALSE) {
@@ -341,4 +353,5 @@ precision <- function(x) {
 
 # Get rid of NOTEs
 globalVariables(c(
-  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code", "warn"))
+  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code", "warn",
+  "output", "input", "result"))
