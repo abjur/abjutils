@@ -113,7 +113,7 @@ extract_parts <- function(id, parts = "") {
   id <- id %>%
     clean_id() %>%
     purrr::modify_if(~stringr::str_length(.x) == 18, calc_dig, build = TRUE) %>%
-    purrr::flatten_chr()
+    unlist()
   
   # Extract parts for one ID
   get_parts <- function(id, parts) {
