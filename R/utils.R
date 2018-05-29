@@ -1,4 +1,31 @@
 
+#' @title Convert Chrome's Query String Parameters to a list
+#' 
+#' @description To use this function, simply copy the Query String
+#' Parameters returned by Chrome when analysing the network flow of
+#' a web page. Paste these QSPs into an R string with double quotes
+#' (as you would to create any string) and pass it to
+#' `chrome_to_body()`; the function will print to the console a
+#' formatted command that creates a list with the QSPs. This list
+#' works perfectly with [httr::GET()] and [httr::POST()] so that
+#' you can easily reproduce a website's behavior.
+#' 
+#' @param x A string with Chrome's Query String Parameters
+#' 
+#' @seealso [httr::GET()], [httr::POST()]
+#' 
+#' @export
+chrome_to_body <- function(x) {
+  x <- unlist(strsplit(x, "\n"))
+  x_split <- stringr::str_split_fixed(x, "\\:(?=[^\\:]*$)", 2)
+  x_split[,2] <- stringr::str_trim(x_split[,2])
+  x_unite <- sprintf('"%s" = "%s"', x_split[, 1], x_split[, 2])
+  x_unite <- paste(x_unite, collapse = ",\n")
+  x_unite <- paste0("list(\n", x_unite, ")")
+  cat(x_unite)
+  invisible(x_unite)
+}
+
 #' Extract file name without extension
 #'
 #' @param x Character vector of file paths
