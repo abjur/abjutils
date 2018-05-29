@@ -14,6 +14,3 @@ Once you run \code{esaj::cjsg_table("subjects")}, you can
 use this function to gather the subjects automatically. Download
 \code{esaj} by running \code{devtools::install_github("courtsbr/esaj")}.
 }
-\seealso{
-\code{\link[esaj:cjsg_table]{esaj::cjsg_table()}}
-}

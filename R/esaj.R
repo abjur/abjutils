@@ -7,8 +7,6 @@
 #' 
 #' @param subjects Table returned by `esaj::cjsg_table("subjects")`
 #' 
-#' @seealso [esaj::cjsg_table()]
-#' 
 #' @export
 gather_subjects <- function(subjects) {
   unite_index <- function(d, i) {
