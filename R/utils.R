@@ -354,4 +354,4 @@ precision <- function(x) {
 # Get rid of NOTEs
 globalVariables(c(
   ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code", "warn",
-  "output", "input", "result"))
+  "output", "input", "result", "value", "id"))

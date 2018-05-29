@@ -184,3 +184,17 @@ separate_cnj <- function(data, col, ...) {
   tidyr::separate(
     data, col, into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...)
 }
+
+#' Regex pattern for finding lawsuit numbers
+#' 
+#' @export
+pattern_cnj <- function() {
+  glue::glue(
+    "[0-9]{{3,7}}-?", 
+    "[0-9]{{2}}\\.?",
+    "[0-9]{{4}}\\.?", 
+    "[0-9]{{1}}\\.?",
+    "[0-9]{{2}}\\.?", 
+    "[0-9]{{4}}"
+  ) %>% as.character()
+}

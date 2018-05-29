@@ -37,7 +37,8 @@ Imports:
   tidyr,
   progress,
   furrr,
-  future
+  future,
+  readr
 Remotes: DavisVaughan/furrr
 Suggests: testthat
 RoxygenNote: 6.0.1
