@@ -28,7 +28,6 @@ Imports:
   tibble,
   devtools,
   magrittr,
-  plyr, 
   purrr,
   rstudioapi,
   scales,

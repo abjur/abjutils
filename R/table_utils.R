@@ -14,15 +14,18 @@ prettify_number <- function(d, number = T, percent = T,  ...){
     dplyr::as_data_frame()
 }
 
+# adapted from plyr package
 fmt <- function(x) {
   format(x, big.mark = '.', small.mark = ',',
          decimal.mark = ',',
          scientific = FALSE, trim = TRUE)
 }
 
+# adapted from plyr package
 fmt_p <- function(x) {
   if (length(x) == 0) return(character())
-  x <- plyr::round_any(x, precision(x) / 100)
+  accuracy <- precision(x) / 100
+  x <- round(x / accuracy) * accuracy
   x <- fmt(x * 100)
   paste0(x, "%")
 }
