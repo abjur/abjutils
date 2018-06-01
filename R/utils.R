@@ -229,11 +229,7 @@ carefully <- function(.f, p = 0.05, cores = 1) {
 #' 
 #' @export
 rm_accent <- function(x) {
-  if (.Platform$OS.type == 'unix') {
-    stringr::str_replace_all(iconv(x, to = "ASCII//TRANSLIT"), "[`'\"^~]", "")
-  } else {
-    stringi::stri_trans_general(x, "Latin-ASCII")
-  }
+  stringi::stri_trans_general(x, "Latin-ASCII")
 }
 
 #' @title Improved list of objects
