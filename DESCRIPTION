@@ -38,7 +38,8 @@ Imports:
   progress,
   furrr,
   future,
-  readr
+  readr,
+  rlang
 Remotes: DavisVaughan/furrr
 Suggests: testthat
 RoxygenNote: 6.0.1

@@ -181,8 +181,9 @@ build_id <- function(id) {
 #' 
 #' @export
 separate_cnj <- function(data, col, ...) {
+  col <- rlang::enquo(col)
   tidyr::separate(
-    data, col, into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...)
+    data, rlang::UQ(col), into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...)
 }
 
 #' Regex pattern for finding lawsuit numbers
