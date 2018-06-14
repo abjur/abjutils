@@ -66,11 +66,12 @@ check_dig <- function(num) {
   num <- stringr::str_replace_all(num, "[.-]","")
   
   if(stringr::str_length(num) != 20){
-    stop("Complete docket numbers should have 20 numerical digits.")
+    warning("Complete docket numbers should have 20 numerical digits.")
+    return(FALSE)
   }
   
   num_no_dig <- stringr::str_c(substr(num,1L,7L),substr(num, 10L, 20L))
-
+  
   num_with_dig <- calc_dig(num_no_dig, build = TRUE)
   
   return(identical(num_with_dig, num))
