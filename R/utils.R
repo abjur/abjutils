@@ -309,8 +309,8 @@ precision <- function(x) {
 #' @export
 reais <- function(x) {
   x %>% 
-    str_remove("R\\$", "") %>% 
-    str_remove(".", "") %>% 
+    str_remove("R\\$") %>% 
+    str_remove(".") %>% 
     str_replace_all(",", "\\.") %>% 
     as.numeric()
 }
