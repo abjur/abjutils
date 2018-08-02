@@ -118,6 +118,19 @@ precision <- function(x) {
     return(1)
   10^floor(log10(span))
 }
+
+#' Convert brazilian currency values (text) to numeric
+#' 
+#' @param x A currency vector. Ex: c("R$ 10.000,00", "R$ 123,00")
+#' 
+#' @export
+reais <- function(x) {
+  x %>% 
+    str_remove("R\\$") %>% 
+    str_remove(".") %>% 
+    str_replace_all(",", "\\.") %>% 
+    as.numeric()
+}
  
 # #' @title Add a progress bar to any mapping function
 # #' 
