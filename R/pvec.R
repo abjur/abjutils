@@ -37,9 +37,19 @@ pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten =
   # Run future map
   out <- furrr::future_map(.x, .f, ..., .progress = .progress, .options = .options)
   
+  # Compact with care
+  compact_ <- function(x) {
+    if (is.null(x[[1]]) && is.null(x[[2]])) {
+      return(list(result = NULL))
+    }
+    else {
+      return(purrr::compact(x))
+    }
+  }
+  
   # Process output
   pout <- out %>%
-    purrr::map(purrr::compact) %>%
+    purrr::map(compact_) %>%
     purrr::flatten() %>%
     tibble::tibble(
       id = purrr::`%||%`(names(.x), seq_along(.x)),
