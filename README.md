@@ -32,7 +32,7 @@ devtools::install_github("abjur/abjutils")
 - `escape_unicode`: replaces accented characters by their unicode-escaped values
 (also an add-in)
 
-- `carefully`: a safe and protected vectorizer useful for things such as web scrapers
+- `pvec`: a safe and protected vectorizer useful for things such as web scrapers
 
 ## Citations
 
