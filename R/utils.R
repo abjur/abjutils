@@ -26,6 +26,22 @@ chrome_to_body <- function(x) {
   invisible(x_unite)
 }
 
+#' Shortcut to write file to "data/" directory from a pipe
+#' 
+#' @param x Object to write
+#' @param name Name of the object (important when loading)
+#' @param dir Directory where to save file
+#' 
+#' @export
+write_data <- function(x, name, dir = "data/") {
+  
+  assign(name, x)
+  save(list = name, file = stringr::str_c(dir, file, ".rda"))
+  rm(name)
+  
+  return(x)
+}
+
 #' Extract file name without extension
 #'
 #' @param x Character vector of file paths
@@ -126,9 +142,9 @@ precision <- function(x) {
 #' @export
 reais <- function(x) {
   x %>% 
-    str_remove("R\\$") %>% 
-    str_remove(".") %>% 
-    str_replace_all(",", "\\.") %>% 
+    stringr::str_remove("R\\$") %>% 
+    stringr::str_remove(".") %>% 
+    stringr::str_replace_all(",", "\\.") %>% 
     as.numeric()
 }
  
