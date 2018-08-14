@@ -67,7 +67,7 @@ pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten =
     
     pout <- pout %>%
       dplyr::filter(return != "error") %>%
-      dplyr::select(-id, -return) %>% 
+      dplyr::select(-return) %>% 
       tidyr::unnest()
     
     if (ncol(pout) == 1) {
