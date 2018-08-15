@@ -36,7 +36,7 @@ chrome_to_body <- function(x) {
 write_data <- function(x, name, dir = "data/") {
   
   assign(name, x)
-  save(list = name, file = stringr::str_c(dir, file, ".rda"))
+  save(list = name, file = stringr::str_c(dir, "/", name, ".rda"))
   rm(name)
   
   return(x)
