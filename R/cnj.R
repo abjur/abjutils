@@ -77,6 +77,53 @@ check_dig <- function(num) {
   return(identical(num_with_dig, num))
 }
 
+#' @title Validate check digits for Brazilian lawsuits identification
+#' number on vectorial scale.
+#' 
+#' @description Verifies if a check digit is correct
+#' 
+#' @param num A vector containing strings with the complete lawsuit number
+#' 
+#' @return Whether or not the check digit is well calculated
+#'   
+#' @examples {
+#' check_dig_vet(c("0005268-75.2013.8.26.0100", "0004122-85.2010.6.16.0100"))
+#'
+#' }
+#' 
+#' @export
+check_dig_vet <- function(num){
+  
+  map_lgl(num,abjutils::check_dig)
+  
+}
+
+
+#' @title Validate Brazilian lawsuits identification number on vectorial scale.
+#' 
+#' @description Verifies if a brazilian lawsuit identification is a cnj number.
+#' 
+#' @param num A vector containing strings with the complete lawsuit number
+#' 
+#' @return Whether or not the check digit is well calculated
+#'   
+#' @examples {
+#' check_dig_vet(c("0005268-75.2013.8.26.0100", "0004122-85.2010.6.16.0100"))
+#'
+#' }
+#' 
+#' @export
+verify_cnj <- function(cnj){
+  
+  nprocesso2 <- if_else(is.na(cnj), '',clean_cnj(cnj))
+  
+  resp<- case_when(nprocesso2 == '' ~ 'vazio ou NA',
+                   str_length(clean_cnj(cnj))>20 ~ '> 20 digitos',
+                   !check_dig_vet(str_pad(if_else(str_length(nprocesso2)>20,str_sub(nprocesso2,end = 20), nprocesso2),20,'left','0'))~ 'dv invalido ou nao-cnj',
+                   T~'valido')
+  return(resp) 
+  
+}
 
 #' @title Extract different parts from lawsuit ID
 #' 
@@ -200,3 +247,14 @@ pattern_cnj <- function() {
     "[0-9]{{4}}"
   ) %>% as.character()
 }
+
+#' @title Clean a cnj number.
+#' 
+#' @description Remove all non-numeric character from a string
+#' 
+#' @param str A string (cnj)
+#' 
+clean_cnj <- function(x){
+  x %>% str_replace_all('[^0-9]','')
+}
+
