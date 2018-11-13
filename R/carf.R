@@ -26,8 +26,7 @@ verify_length <- function(val) {
 #' @examples {
 #' carf_calc_dig("10120.008427/2003", build = TRUE)
 #' carf_calc_dig("15374.002430/99", build = FALSE)
-#' carf_calc_dig("101200084272003")
-#' carf_calc_dig("1537400243099")
+#' carf_calc_dig(c("101200084272003", "1537400243099"))
 #' 
 #' # will fail
 #' \donttest{
