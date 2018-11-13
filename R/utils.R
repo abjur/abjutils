@@ -80,7 +80,7 @@ rm_accent <- function(x) {
 #'  
 #' @references http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
 #'  
-#'@export
+#' @export
 lsos <- function (pos = 1, pattern, order.by = "Size",
                   decreasing=TRUE, head=TRUE, n=10) {
   napply <- function(names, fn) sapply(names, function(x)
@@ -99,7 +99,7 @@ lsos <- function (pos = 1, pattern, order.by = "Size",
   if (!missing(order.by))
     out <- out[order(out[[order.by]], decreasing=decreasing), ]
   if (head)
-    out <- head(out, n)
+    out <- utils::head(out, n)
   out
 }
 

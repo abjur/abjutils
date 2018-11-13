@@ -94,7 +94,7 @@ check_dig <- function(num) {
 #' @export
 check_dig_vet <- function(num){
   
-  map_lgl(num,abjutils::check_dig)
+  purrr::map_lgl(num,abjutils::check_dig)
   
 }
 
@@ -103,24 +103,19 @@ check_dig_vet <- function(num){
 #' 
 #' @description Verifies if a brazilian lawsuit identification is a cnj number.
 #' 
-#' @param num A vector containing strings with the complete lawsuit number
+#' @param cnj A vector containing strings with the complete lawsuit number
 #' 
 #' @return Whether or not the check digit is well calculated
 #'   
-#' @examples {
-#' check_dig_vet(c("0005268-75.2013.8.26.0100", "0004122-85.2010.6.16.0100"))
-#'
-#' }
-#' 
 #' @export
 verify_cnj <- function(cnj){
   
-  nprocesso2 <- if_else(is.na(cnj), '',clean_cnj(cnj))
+  nprocesso2 <- dplyr::if_else(is.na(cnj), '',clean_cnj(cnj))
   
-  resp<- case_when(nprocesso2 == '' ~ 'vazio ou NA',
-                   str_length(clean_cnj(cnj))>20 ~ '> 20 digitos',
-                   !check_dig_vet(str_pad(if_else(str_length(nprocesso2)>20,str_sub(nprocesso2,end = 20), nprocesso2),20,'left','0'))~ 'dv invalido ou nao-cnj',
-                   T~'valido')
+  resp<- dplyr::case_when(nprocesso2 == '' ~ 'vazio ou NA',
+                          stringr::str_length(clean_cnj(cnj))>20 ~ '> 20 digitos',
+                          !check_dig_vet(stringr::str_pad(dplyr::if_else(stringr::str_length(nprocesso2)>20,str_sub(nprocesso2,end = 20), nprocesso2),20,'left','0'))~ 'dv invalido ou nao-cnj',
+                          T~'valido')
   return(resp) 
   
 }
@@ -252,9 +247,10 @@ pattern_cnj <- function() {
 #' 
 #' @description Remove all non-numeric character from a string
 #' 
-#' @param str A string (cnj)
+#' @param x A string (cnj)
 #' 
-clean_cnj <- function(x){
-  x %>% str_replace_all('[^0-9]','')
+#' @export
+clean_cnj <- function(x) {
+  stringr::str_replace_all(x, '[^0-9]','')
 }
 
