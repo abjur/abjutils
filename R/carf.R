@@ -37,7 +37,6 @@ verify_length <- function(val) {
 #' @export
 carf_calc_dig <- function(id, build = FALSE, verify = TRUE) {
   val <- gsub("[^0-9]", "", id)
-  val <- substr(val, 1, nchar(val))
   if (verify) verify_length(val)
   calc_dv_one <- function(val) {
     len <- nchar(val)
