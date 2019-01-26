@@ -9,9 +9,9 @@ Description: The Brazilian Jurimetrics Association (ABJ in Portuguese,
   This package implements general purpose tools used by ABJ, such as functions
   for sampling and basic manipulation of Brazilian lawsuits identification
   number. It also implements functions for text cleaning, such as accentuation removal.
-Version: 0.2.1.9000
+Version: 0.2.2
 Authors@R: c(
-  person("Julio", "Trecenti", role = "aut", email = "jtrecenti@abj.org.br"),
+  person("Julio", "Trecenti", role = "aut", email = "julio.trecenti@gmail.com"),
   person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
   person("Fernando", "Correa", role = "aut", email = "fcorrea@abj.org.br"),
   person("Caio", "Lente", role = c("aut","cre"), email = "ctlente@gmail.com"),
@@ -39,7 +39,6 @@ Imports:
   future,
   readr,
   rlang
-Remotes: DavisVaughan/furrr
 Suggests: testthat
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
