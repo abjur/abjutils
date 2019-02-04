@@ -9,17 +9,17 @@ Description: The Brazilian Jurimetrics Association (ABJ in Portuguese,
   This package implements general purpose tools used by ABJ, such as functions
   for sampling and basic manipulation of Brazilian lawsuits identification
   number. It also implements functions for text cleaning, such as accentuation removal.
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: c(
   person("Julio", "Trecenti", role = "aut", email = "julio.trecenti@gmail.com"),
   person("Athos", "Damiani", role = "ctb", email = "athos.damiani@gmail.com"),
   person("Fernando", "Correa", role = "aut", email = "fcorrea@abj.org.br"),
-  person("Caio", "Lente", role = c("aut","cre"), email = "ctlente@gmail.com"),
+  person("Caio", "Lente", role = c("aut","cre"), email = "caio.lente@usp.br"),
   person(family = "Brazilian Jurimetrics Association", role = "cph"))
-Maintainer: Caio Lente <ctlente@gmail.com>
+Maintainer: Caio Lente <caio.lente@usp.br>
 URL: https://github.com/abjur/abjutils
 LazyData: TRUE
-Depends: R (>= 3.1)
+Depends: R (>= 3.4)
 License: MIT + file LICENSE
 Imports:
   stringr,

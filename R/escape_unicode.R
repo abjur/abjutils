@@ -23,5 +23,13 @@ escape_unicode <- function() {
   
   # Get text of document and escape accented characters
   doc <- rstudioapi::getSourceEditorContext()
-  rstudioapi::setDocumentContents(escape_all(doc$contents), doc$id)
+
+  # Change behavior if selection exists
+  text <- purrr::pluck(doc, "selection", 1, "text")
+  if (stringr::str_length(text) > 0) {
+    sel <- stringr::str_split(text, "\n")[[1]]
+    rstudioapi::insertText(purrr::pluck(doc, "selection", 1, "range"), escape_all(sel))
+  } else {
+    rstudioapi::setDocumentContents(escape_all(doc$contents), doc$id)
+  }
 }
