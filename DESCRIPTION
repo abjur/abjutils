@@ -3,7 +3,7 @@ Package: abjutils
 Title: Useful Tools for Jurimetrical Analysis Used by the
     Brazilian Jurimetrics Association
 Version: 0.2.3
-Date: 2018-01-18
+Date: 2019-02-04
 Authors@R: 
     c(person(given = "Julio",
              family = "Trecenti",
