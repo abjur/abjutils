@@ -27,8 +27,6 @@ verify_length <- function(val) {
 #' carf_calc_dig("10120.008427/2003", build = TRUE)
 #' carf_calc_dig("15374.002430/99", build = FALSE)
 #' carf_calc_dig(c("101200084272003", "1537400243099"))
-#' 
-#' # will fail
 #' \donttest{
 #' carf_calc_dig("10766.000511/96-12")
 #' }

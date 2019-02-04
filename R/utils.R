@@ -1,6 +1,6 @@
 
 #' @title Convert Chrome's Query String Parameters to a list
-#' 
+#'
 #' @description To use this function, simply copy the Query String
 #' Parameters returned by Chrome when analysing the network flow of
 #' a web page. Paste these QSPs into an R string with double quotes
@@ -9,16 +9,16 @@
 #' formatted command that creates a list with the QSPs. This list
 #' works perfectly with [httr::GET()] and [httr::POST()] so that
 #' you can easily reproduce a website's behavior.
-#' 
+#'
 #' @param x A string with Chrome's Query String Parameters
-#' 
+#'
 #' @seealso [httr::GET()], [httr::POST()]
-#' 
+#'
 #' @export
 chrome_to_body <- function(x) {
   x <- unlist(strsplit(x, "\n"))
   x_split <- stringr::str_split_fixed(x, "\\:(?=[^\\:]*$)", 2)
-  x_split[,2] <- stringr::str_trim(x_split[,2])
+  x_split[, 2] <- stringr::str_trim(x_split[, 2])
   x_unite <- sprintf('"%s" = "%s"', x_split[, 1], x_split[, 2])
   x_unite <- paste(x_unite, collapse = ",\n")
   x_unite <- paste0("list(\n", x_unite, ")")
@@ -27,39 +27,38 @@ chrome_to_body <- function(x) {
 }
 
 #' Shortcut to write file to "data/" directory from a pipe
-#' 
+#'
 #' @param x Object to write
 #' @param name Name of the object (important when loading)
 #' @param dir Directory where to save file
-#' 
+#'
 #' @export
 write_data <- function(x, name, dir = "data/") {
-  
   assign(name, x)
   save(list = name, file = stringr::str_c(dir, "/", name, ".rda"))
   rm(name)
-  
+
   return(x)
 }
 
 #' Extract file name without extension
 #'
 #' @param x Character vector of file paths
-#' 
+#'
 #' @export
 file_sans_ext <- function(x) {
   basename(tools::file_path_sans_ext(x))
 }
 
 #' @title Remove accentuation
-#' 
+#'
 #' @description Remove accented characters from strings converting them to
 #' ASCII.
-#' 
+#'
 #' @param x A string vector
-#' 
+#'
 #' @return A version of `x` without non-ASCII characters
-#' 
+#'
 #' @export
 rm_accent <- function(x) {
   stringi::stri_trans_general(x, "Latin-ASCII")
@@ -77,14 +76,14 @@ rm_accent <- function(x) {
 #' @param decreasing Should the sorting be decreasing?
 #' @param head Should [utils::head()] function be used for printing?
 #' @param n How many lines [utils::head()] function should show?
-#'  
+#'
 #' @references http://stackoverflow.com/questions/1358003/tricks-to-manage-the-available-memory-in-an-r-session
-#'  
+#'
 #' @export
-lsos <- function (pos = 1, pattern, order.by = "Size",
-                  decreasing=TRUE, head=TRUE, n=10) {
+lsos <- function(pos = 1, pattern, order.by = "Size",
+                 decreasing = TRUE, head = TRUE, n = 10) {
   napply <- function(names, fn) sapply(names, function(x)
-    fn(get(x, pos = pos)))
+      fn(get(x, pos = pos)))
   names <- ls(pos = pos, pattern = pattern)
   obj.class <- napply(names, function(x) as.character(class(x))[1])
   obj.mode <- napply(names, mode)
@@ -96,59 +95,68 @@ lsos <- function (pos = 1, pattern, order.by = "Size",
   obj.dim[vec, 1] <- napply(names, length)[vec]
   out <- data.frame(obj.type, obj.size, obj.dim)
   names(out) <- c("Type", "Size", "Rows", "Columns")
-  if (!missing(order.by))
-    out <- out[order(out[[order.by]], decreasing=decreasing), ]
-  if (head)
+  if (!missing(order.by)) {
+    out <- out[order(out[[order.by]], decreasing = decreasing), ]
+  }
+  if (head) {
     out <- utils::head(out, n)
+  }
   out
 }
 
 #' @title Add pipe template
-#' 
+#'
 #' @description Adds pipe template to package documentation.
-#' 
+#'
 #' @param pkg Package description (can be path or package name)
-#' 
+#'
 #' @export
-use_pipe <- function(pkg = '.') {
+use_pipe <- function(pkg = ".") {
   pkg <- devtools::as.package(pkg)
-  devtools::use_package('magrittr', pkg = pkg)
-  txt_pipe <- readLines(system.file('pipe-op.R', 
-                                    package = 'abjutils'))
-  cat(txt_pipe, file = paste0(pkg$path, '/R/utils.R'),
-      append = TRUE, sep = '\n')
+  devtools::use_package("magrittr", pkg = pkg)
+  txt_pipe <- readLines(system.file("pipe-op.R",
+    package = "abjutils"
+  ))
+  cat(txt_pipe,
+    file = paste0(pkg$path, "/R/utils.R"),
+    append = TRUE, sep = "\n"
+  )
   devtools::document()
 }
 
 #' Mirror of scales:::precision()
-#' 
+#'
 #' @param x See scales:::precision()
-#' 
+#'
 #' @export
 precision <- function(x) {
   rng <- range(x, na.rm = TRUE)
-  span <- if (scales::zero_range(rng)) 
+  span <- if (scales::zero_range(rng)) {
     abs(rng[1])
-  else diff(rng)
-  if (span == 0) 
+  } else {
+    diff(rng)
+  }
+  if (span == 0) {
     return(1)
+  }
   10^floor(log10(span))
 }
 
 #' Convert brazilian currency values (text) to numeric
-#' 
+#'
 #' @param x A currency vector. Ex: c("R$ 10.000,00", "R$ 123,00")
-#' 
+#'
 #' @export
 reais <- function(x) {
-  x %>% 
-    stringr::str_remove("R\\$") %>% 
-    stringr::str_remove(".") %>% 
-    stringr::str_replace_all(",", "\\.") %>% 
+  x %>%
+    stringr::str_remove("R\\$") %>%
+    stringr::str_remove(".") %>%
+    stringr::str_replace_all(",", "\\.") %>%
     as.numeric()
 }
 
 # Get rid of NOTEs
 globalVariables(c(
-  ".","item","object.size","%>%", "n_processo", "runif", "serial", "no_cd_code", "warn",
-  "output", "input", "result", "value", "id"))
+  ".", "item", "object.size", "%>%", "n_processo", "runif", "serial", "no_cd_code", "warn",
+  "output", "input", "result", "value", "id"
+))

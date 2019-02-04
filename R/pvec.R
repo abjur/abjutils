@@ -17,26 +17,26 @@
 #' and the returned object is flattened (a vector, a list, or a tibble)
 #' @param .options Options passed on to [furrr::future_map()]
 #' ([furrr::future_options()] by default)
-#' 
+#'
 #' @seealso [purrr::map()], [furrr::future_map()], [furrr::future_options()]
-#' 
+#'
 #' @return A tibble with 3 columns: input, return, and output
 #' @export
 pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten = FALSE, .options = future_options()) {
-  
+
   # Preserve execution plan
   oplan <- future::plan()
   on.exit(future::plan(oplan), add = TRUE)
-  
+
   # Set execution plan to multicore
   future::plan(future::multicore, workers = .cores)
-  
+
   # Capture function side-effects
   .f <- purrr::safely(purrr::as_mapper(.f))
-  
+
   # Run future map
   out <- furrr::future_map(.x, .f, ..., .progress = .progress, .options = .options)
-  
+
   # Compact with care
   compact_ <- function(x) {
     if (is.null(x[[1]]) && is.null(x[[2]])) {
@@ -46,35 +46,37 @@ pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten =
       return(purrr::compact(x))
     }
   }
-  
+
   # Process output
   pout <- out %>%
     purrr::map(compact_) %>%
     purrr::flatten() %>%
     tibble::tibble(
       id = purrr::`%||%`(names(.x), seq_along(.x)),
-      return = names(.), output = .)
-  
+      return = names(.), output = .
+    )
+
   # Flatten results if necessary
   if (.flatten) {
-    
     n_error <- length(pout$return[pout$return == "error"])
     if (n_error > 0) {
       warning(
         "Since '.flatten = TRUE', a total of ", n_error,
-        " errors are being ignored", call. = FALSE)
+        " errors are being ignored",
+        call. = FALSE
+      )
     }
-    
+
     pout <- pout %>%
       dplyr::filter(return != "error") %>%
-      dplyr::select(-return) %>% 
+      dplyr::select(-return) %>%
       tidyr::unnest()
-    
+
     if (ncol(pout) == 1) {
       pout <- dplyr::pull(pout, output)
     }
   }
-  
+
   return(pout)
 }
 

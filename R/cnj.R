@@ -1,3 +1,4 @@
+
 #' @title Calculate digits for Brazilian lawsuit identification numbers
 #' 
 #' @description Returns the check digit of a lawsuit numbers in the format 
@@ -13,8 +14,6 @@
 #' @examples {
 #' calc_dig("001040620018260004", build = TRUE)
 #' calc_dig("001040620018260004", build = FALSE)
-#' 
-#' #will fail
 #' \dontrun{
 #' calc_dig("00104062001826000", build = TRUE)
 #' }
@@ -253,4 +252,3 @@ pattern_cnj <- function() {
 clean_cnj <- function(x) {
   stringr::str_replace_all(x, '[^0-9]','')
 }
-

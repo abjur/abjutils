@@ -1,24 +1,27 @@
-prettify_number <- function(d, number = T, percent = T,  ...){
-  
-  if(percent){
-    query <- '{fmt_p(x/sum(x))}'
-  } 
-  
-  if(number) {
-    query <- sprintf('{fmt(x)} (%s)', glue::glue(query))
+prettify_number <- function(d, number = T, percent = T, ...) {
+  if (percent) {
+    query <- "{fmt_p(x/sum(x))}"
   }
-  
-  d %>% 
-    dplyr::select(...) %>% 
-    dplyr::mutate_if(is.numeric, .funs = function(x){glue::glue(query)}) %>% 
+
+  if (number) {
+    query <- sprintf("{fmt(x)} (%s)", glue::glue(query))
+  }
+
+  d %>%
+    dplyr::select(...) %>%
+    dplyr::mutate_if(is.numeric, .funs = function(x) {
+      glue::glue(query)
+    }) %>%
     dplyr::as_data_frame()
 }
 
 # adapted from plyr package
 fmt <- function(x) {
-  format(x, big.mark = '.', small.mark = ',',
-         decimal.mark = ',',
-         scientific = FALSE, trim = TRUE)
+  format(x,
+    big.mark = ".", small.mark = ",",
+    decimal.mark = ",",
+    scientific = FALSE, trim = TRUE
+  )
 }
 
 # adapted from plyr package
