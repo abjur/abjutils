@@ -43,6 +43,9 @@ pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten =
       return(list(result = NULL))
     }
     else {
+      if (length(x$result) == 0) {
+        return(list(result = NULL))
+      }
       return(purrr::compact(x))
     }
   }
