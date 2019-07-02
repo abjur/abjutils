@@ -53,7 +53,8 @@ Imports:
     stringi,
     stringr,
     tibble,
-    tidyr
+    tidyr,
+    usethis
 Suggests: 
     testthat
 LazyData: TRUE
