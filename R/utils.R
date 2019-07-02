@@ -112,8 +112,11 @@ lsos <- function(pos = 1, pattern, order.by = "Size",
 #'
 #' @export
 use_pipe <- function(pkg = ".") {
+  .Deprecated("usethis::use_pipe")
   pkg <- devtools::as.package(pkg)
-  devtools::use_package("magrittr", pkg = pkg)
+  usethis::with_project(pkg$path,
+    usethis::use_package("magrittr", pkg = pkg)
+  )
   txt_pipe <- readLines(system.file("pipe-op.R",
     package = "abjutils"
   ))
