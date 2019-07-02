@@ -23,7 +23,6 @@
 #' @return A tibble with 3 columns: input, return, and output
 #' @export
 pvec <- function(.x, .f, ..., .cores = get_cores(), .progress = TRUE, .flatten = FALSE, .options = future_options()) {
-  
   .Deprecated("furrr::future_map")
 
   # Preserve execution plan

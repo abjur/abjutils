@@ -22,11 +22,7 @@ unified by the brazillian National Council of Justice.
 }
 \examples{
 {
-calc_dig("001040620018260004", build = TRUE)
-calc_dig("001040620018260004", build = FALSE)
-\dontrun{
-calc_dig("00104062001826000", build = TRUE)
+  calc_dig("001040620018260004", build = TRUE)
+  calc_dig("001040620018260004", build = FALSE)
 }
-}
-
 }

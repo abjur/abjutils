@@ -114,7 +114,8 @@ lsos <- function(pos = 1, pattern, order.by = "Size",
 use_pipe <- function(pkg = ".") {
   .Deprecated("usethis::use_pipe")
   pkg <- devtools::as.package(pkg)
-  usethis::with_project(pkg$path,
+  usethis::with_project(
+    pkg$path,
     usethis::use_package("magrittr", pkg = pkg)
   )
   txt_pipe <- readLines(system.file("pipe-op.R",
@@ -146,21 +147,27 @@ precision <- function(x) {
 }
 
 # Mirror of scales::zero_range
-zero_range <- function (x, tol = 1000 * .Machine$double.eps) {
-  if (length(x) == 1) 
+zero_range <- function(x, tol = 1000 * .Machine$double.eps) {
+  if (length(x) == 1) {
     return(TRUE)
-  if (length(x) != 2) 
+  }
+  if (length(x) != 2) {
     stop("x must be length 1 or 2")
-  if (any(is.na(x))) 
+  }
+  if (any(is.na(x))) {
     return(NA)
-  if (x[1] == x[2]) 
+  }
+  if (x[1] == x[2]) {
     return(TRUE)
-  if (all(is.infinite(x))) 
+  }
+  if (all(is.infinite(x))) {
     return(FALSE)
+  }
   m <- min(abs(x))
-  if (m == 0) 
+  if (m == 0) {
     return(FALSE)
-  abs((x[1] - x[2])/m) < tol
+  }
+  abs((x[1] - x[2]) / m) < tol
 }
 
 #' Convert brazilian currency values (text) to numeric

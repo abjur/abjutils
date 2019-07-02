@@ -18,11 +18,6 @@ Verifies if a check digit is correct
 }
 \examples{
 {
-check_dig("0005268-75.2013.8.26.0100")
-
-\dontrun{
-check_dig("0005268-75.2013.8.26.100", build = TRUE)
+  check_dig("0005268-75.2013.8.26.0100")
 }
-}
-
 }

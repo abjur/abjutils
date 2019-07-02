@@ -5,10 +5,9 @@ Title: Useful Tools for Jurimetrical Analysis Used by the
 Version: 0.2.3
 Date: 2019-07-02
 Authors@R: 
-    person(
-      family = "ABJ",
-      email = "relacionamento@abj.org.br",
-      role = c("aut", "cre", "cph"))
+    person(family = "ABJ",
+           role = c("aut", "cre", "cph"),
+           email = "relacionamento@abj.org.br")
 Maintainer: Caio Lente <caio.lente@usp.br>
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <http://www.abjur.org.br/en/> for more information) is
@@ -33,9 +32,11 @@ Imports:
     tidyr
 Suggests: 
     devtools,
+    usethis,
     furrr,
     future,
     testthat
+Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace",
     "collate"))

@@ -14,26 +14,26 @@
 #' f <- function(a, b = 3) {
 #'   a * b
 #' }
-#' 
+#'
 #' test_fun(f)
 #' a
 #' b
-#' 
+#'
 #' b <- 5
 #' test_fun(f)
 #' a
 #' b
-#' 
+#'
 #' test_fun(f, TRUE)
 #' a
 #' b
-#' 
+#'
 #' a <- 2
 #' test_fun(f)
 #' a
 #' b
 #' }
-#' 
+#'
 #' @export
 test_fun <- function(f, force_default = FALSE) {
   args <- names(formals(f))

@@ -26,7 +26,9 @@ fmt <- function(x) {
 
 # adapted from plyr package
 fmt_p <- function(x) {
-  if (length(x) == 0) return(character())
+  if (length(x) == 0) {
+    return(character())
+  }
   accuracy <- precision(x) / 100
   x <- round(x / accuracy) * accuracy
   x <- fmt(x * 100)
