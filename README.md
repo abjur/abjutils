@@ -25,14 +25,13 @@ devtools::install_github("abjur/abjutils")
 
 ## Usage
 
-`abjutils` has many functions, but the most useful are listed below
+`abjutils` has many functions, but for regular users the most useful ones are
+listed below
 
 - `rm_accent`: removes diacritics from a string
 
 - `escape_unicode`: replaces accented characters by their unicode-escaped values
 (also an add-in)
-
-- `pvec`: a safe and protected vectorizer useful for things such as web scrapers
 
 ## Citations
 

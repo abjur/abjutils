@@ -5,24 +5,10 @@ Title: Useful Tools for Jurimetrical Analysis Used by the
 Version: 0.2.3
 Date: 2019-02-04
 Authors@R: 
-    c(person(given = "Julio",
-             family = "Trecenti",
-             role = "aut",
-             email = "julio.trecenti@gmail.com"),
-      person(given = "Athos",
-             family = "Damiani",
-             role = "ctb",
-             email = "athos.damiani@gmail.com"),
-      person(given = "Fernando",
-             family = "Correa",
-             role = "aut",
-             email = "fcorrea@abj.org.br"),
-      person(given = "Caio",
-             family = "Lente",
-             role = c("aut", "cre"),
-             email = "caio.lente@usp.br"),
-      person(family = "Brazilian Jurimetrics Association",
-             role = "cph"))
+    person(
+      family = "ABJ",
+      email = "relacionamento@abj.org.br",
+      role = c("aut", "cre", "cph"))
 Maintainer: Caio Lente <caio.lente@usp.br>
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <http://www.abjur.org.br/en/> for more information) is
@@ -37,24 +23,18 @@ URL: https://github.com/abjur/abjutils
 Depends: 
     R (>= 3.4)
 Imports:
-    devtools,
     dplyr,
-    furrr,
-    future,
-    glue,
-    httr,
     magrittr,
-    progress,
     purrr,
-    readr,
     rlang,
     rstudioapi,
-    scales,
     stringi,
     stringr,
-    tibble,
     tidyr
 Suggests: 
+    devtools,
+    furrr,
+    future,
     testthat
 LazyData: TRUE
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace",

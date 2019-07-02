@@ -4,13 +4,13 @@ prettify_number <- function(d, number = T, percent = T, ...) {
   }
 
   if (number) {
-    query <- sprintf("{fmt(x)} (%s)", glue::glue(query))
+    query <- sprintf("{fmt(x)} (%s)", stringr::str_glue(query))
   }
 
   d %>%
     dplyr::select(...) %>%
     dplyr::mutate_if(is.numeric, .funs = function(x) {
-      glue::glue(query)
+      stringr::str_glue(query)
     }) %>%
     dplyr::as_data_frame()
 }

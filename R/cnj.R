@@ -232,7 +232,7 @@ separate_cnj <- function(data, col, ...) {
 #' 
 #' @export
 pattern_cnj <- function() {
-  glue::glue(
+  stringr::str_glue(
     "[0-9]{{3,7}}-?", 
     "[0-9]{{2}}\\.?",
     "[0-9]{{4}}\\.?", 

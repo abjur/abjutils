@@ -12,11 +12,9 @@ gather_subjects <- function(subjects) {
   unite_index <- function(d, i) {
     tidyr::unite_(d, paste0("level", i), paste0(c("id", "name"), i))
   }
-  col <- readr::cols(.default = readr::col_character())
   purrr::reduce(0:5, unite_index, .init = subjects) %>%
     tidyr::gather() %>%
     tidyr::separate(value, c("id", "nm"), sep = "_") %>%
     dplyr::distinct(id, .keep_all = TRUE) %>%
-    readr::type_convert(col_types = col) %>%
     dplyr::filter(!is.na(id))
 }

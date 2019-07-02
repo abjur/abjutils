@@ -131,7 +131,7 @@ use_pipe <- function(pkg = ".") {
 #' @export
 precision <- function(x) {
   rng <- range(x, na.rm = TRUE)
-  span <- if (scales::zero_range(rng)) {
+  span <- if (zero_range(rng)) {
     abs(rng[1])
   } else {
     diff(rng)
@@ -140,6 +140,24 @@ precision <- function(x) {
     return(1)
   }
   10^floor(log10(span))
+}
+
+# Mirror of scales::zero_range
+zero_range <- function (x, tol = 1000 * .Machine$double.eps) {
+  if (length(x) == 1) 
+    return(TRUE)
+  if (length(x) != 2) 
+    stop("x must be length 1 or 2")
+  if (any(is.na(x))) 
+    return(NA)
+  if (x[1] == x[2]) 
+    return(TRUE)
+  if (all(is.infinite(x))) 
+    return(FALSE)
+  m <- min(abs(x))
+  if (m == 0) 
+    return(FALSE)
+  abs((x[1] - x[2])/m) < tol
 }
 
 #' Convert brazilian currency values (text) to numeric
