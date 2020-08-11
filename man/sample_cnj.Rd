@@ -4,8 +4,16 @@
 \alias{sample_cnj}
 \title{Generate sample Brazilian lawsuit identification numbers}
 \usage{
-sample_cnj(n, foros, anos, orgao, tr, first_dig = "0",
-  sample_pars = TRUE, return_df = TRUE)
+sample_cnj(
+  n,
+  foros,
+  anos,
+  orgao,
+  tr,
+  first_dig = "0",
+  sample_pars = TRUE,
+  return_df = TRUE
+)
 }
 \arguments{
 \item{n}{A non negative integer giving the number of codes to generate}

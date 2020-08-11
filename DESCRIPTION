@@ -32,11 +32,9 @@ Imports:
 Suggests: 
     devtools,
     usethis,
-    furrr,
-    future,
     testthat
 Encoding: UTF-8
 LazyData: TRUE
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace",
     "collate"))
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1

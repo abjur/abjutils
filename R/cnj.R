@@ -125,7 +125,7 @@ verify_cnj <- function(cnj) {
 #' @param parts String or string vector with desired parts (see **description**)
 #'
 #' @examples
-#' {
+#' \dontrun{
 #'   extract_parts("001040620018260004", "N")
 #'   extract_parts("001040620018260004", c("N", "A", "O"))
 #' }
