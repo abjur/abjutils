@@ -3,13 +3,13 @@ Package: abjutils
 Title: Useful Tools for Jurimetrical Analysis Used by the
     Brazilian Jurimetrics Association
 Version: 0.2.4
-Date: 2019-07-02
+Date: 2020-08-11
 Authors@R: 
     person(family = "ABJ",
            role = c("aut", "cre", "cph"),
            email = "clente@abj.org.br")
 Description: The Brazilian Jurimetrics Association (ABJ in
-    Portuguese, see <http://www.abjur.org.br/en/> for more information) is
+    Portuguese, see <https://abj.org.br/> for more information) is
     a non-profit organization which aims to investigate and promote the
     use of statistics and probability in the study of Law and its
     institutions.  This package implements general purpose tools used by
@@ -19,7 +19,7 @@ Description: The Brazilian Jurimetrics Association (ABJ in
 License: MIT + file LICENSE
 URL: https://github.com/abjur/abjutils
 Depends: 
-    R (>= 3.4)
+    R (>= 4.0)
 Imports:
     dplyr,
     magrittr,
