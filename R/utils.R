@@ -104,30 +104,6 @@ lsos <- function(pos = 1, pattern, order.by = "Size",
   out
 }
 
-#' @title Add pipe template
-#'
-#' @description Adds pipe template to package documentation.
-#'
-#' @param pkg Package description (can be path or package name)
-#'
-#' @export
-use_pipe <- function(pkg = ".") {
-  .Deprecated("usethis::use_pipe")
-  pkg <- devtools::as.package(pkg)
-  usethis::with_project(
-    pkg$path,
-    usethis::use_package("magrittr", pkg = pkg)
-  )
-  txt_pipe <- readLines(system.file("pipe-op.R",
-    package = "abjutils"
-  ))
-  cat(txt_pipe,
-    file = paste0(pkg$path, "/R/utils.R"),
-    append = TRUE, sep = "\n"
-  )
-  devtools::document()
-}
-
 #' Mirror of scales:::precision()
 #'
 #' @param x See scales:::precision()
