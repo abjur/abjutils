@@ -7,7 +7,7 @@ Date: 2019-07-02
 Authors@R: 
     person(family = "ABJ",
            role = c("aut", "cre", "cph"),
-           email = "relacionamento@abj.org.br")
+           email = "clente@abj.org.br")
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <http://www.abjur.org.br/en/> for more information) is
     a non-profit organization which aims to investigate and promote the
