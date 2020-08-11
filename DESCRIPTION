@@ -30,8 +30,6 @@ Imports:
     stringr,
     tidyr
 Suggests: 
-    devtools,
-    usethis,
     testthat
 Encoding: UTF-8
 LazyData: TRUE
