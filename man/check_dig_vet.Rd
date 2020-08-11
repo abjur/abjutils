@@ -3,7 +3,7 @@
 \name{check_dig_vet}
 \alias{check_dig_vet}
 \title{Validate check digits for Brazilian lawsuits identification
-number on vectorial scale.}
+number on vectors.}
 \usage{
 check_dig_vet(num)
 }

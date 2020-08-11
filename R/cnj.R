@@ -2,7 +2,7 @@
 #' @title Calculate digits for Brazilian lawsuit identification numbers
 #'
 #' @description Returns the check digit of a lawsuit numbers in the format
-#' unified by the brazillian National Council of Justice.
+#' unified by the Brazilian National Council of Justice.
 #'
 #' @param num Ordered digits of the lawsuit number (including 0's) excluding
 #' the check digit
@@ -68,7 +68,7 @@ check_dig <- function(num) {
 }
 
 #' @title Validate check digits for Brazilian lawsuits identification
-#' number on vectorial scale.
+#' number on vectors.
 #'
 #' @description Verifies if a check digit is correct
 #'
@@ -86,9 +86,9 @@ check_dig_vet <- function(num) {
 }
 
 
-#' @title Validate Brazilian lawsuits identification number on vectorial scale.
+#' @title Validate Brazilian lawsuits identification number on vectors.
 #'
-#' @description Verifies if a brazilian lawsuit identification is a cnj number.
+#' @description Verifies if a Brazilian lawsuit identification is a cnj number.
 #'
 #' @param cnj A vector containing strings with the complete lawsuit number
 #'

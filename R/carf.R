@@ -14,7 +14,7 @@ verify_length <- function(val) {
 #' @description Returns the check digit of a CARF number or full number with
 #' the check digit.
 #'
-#' @param id Lawsuit number (including trailling zeros), excluding
+#' @param id Lawsuit number (including trailing zeros), excluding
 #' the check digit.
 #' @param build Whether or not the function return the complete number
 #' (or only the check digits)?

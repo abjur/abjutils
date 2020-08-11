@@ -2,7 +2,7 @@
 #' @title Convert Chrome's Query String Parameters to a list
 #'
 #' @description To use this function, simply copy the Query String
-#' Parameters returned by Chrome when analysing the network flow of
+#' Parameters returned by Chrome when analyzing the network flow of
 #' a web page. Paste these QSPs into an R string with double quotes
 #' (as you would to create any string) and pass it to
 #' `chrome_to_body()`; the function will print to the console a
@@ -146,7 +146,7 @@ zero_range <- function(x, tol = 1000 * .Machine$double.eps) {
   abs((x[1] - x[2]) / m) < tol
 }
 
-#' Convert brazilian currency values (text) to numeric
+#' Convert Brazilian currency values (text) to numeric
 #'
 #' @param x A currency vector. Ex: c("R$ 10.000,00", "R$ 123,00")
 #'

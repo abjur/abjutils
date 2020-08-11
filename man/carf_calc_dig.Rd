@@ -7,7 +7,7 @@
 carf_calc_dig(id, build = FALSE, verify = TRUE)
 }
 \arguments{
-\item{id}{Lawsuit number (including trailling zeros), excluding
+\item{id}{Lawsuit number (including trailing zeros), excluding
 the check digit.}
 
 \item{build}{Whether or not the function return the complete number
