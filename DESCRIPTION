@@ -4,10 +4,19 @@ Title: Useful Tools for Jurimetrical Analysis Used by the
     Brazilian Jurimetrics Association
 Version: 0.3.0
 Date: 2020-08-11
-Authors@R: 
-    person(family = "ABJ",
-           role = c("aut", "cre", "cph"),
-           email = "clente@abj.org.br")
+Authors@R:
+    c(person(given = "Caio",
+             family = "Lente",
+             role = c("aut", "cre"),
+             email = "clente@abj.org.br",
+             comment = c(ORCID = "0000-0003-4757-117X")),
+      person(given = "Julio",
+             family = "Trecenti",
+             role = "aut",
+             email = "julio.trecenti@gmail.com",
+             comment = c(ORCID = "0000-0002-1680-6389")),
+      person(given = "ABJ",
+             role = c("cph", "fnd")))
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <https://abj.org.br/> for more information) is
     a non-profit organization which aims to investigate and promote the
