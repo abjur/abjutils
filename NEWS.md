@@ -1,3 +1,7 @@
+# abjutils 0.3.1
+
+* Fixed maintainer information
+
 # abjutils 0.3.0
 
 * Change maintainer email
