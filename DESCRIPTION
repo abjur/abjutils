@@ -14,7 +14,7 @@ Authors@R:
              role = "aut",
              email = "julio.trecenti@gmail.com",
              comment = c(ORCID = "0000-0002-1680-6389")),
-      person(given = "ABJ",
+      person(given = "Associação Brasileira de Jurimetria",
              role = c("cph", "fnd")))
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <https://abj.org.br/> for more information) is
