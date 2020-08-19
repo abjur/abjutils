@@ -101,7 +101,7 @@ verify_cnj <- function(cnj) {
   resp <- dplyr::case_when(
     nprocesso2 == "" ~ "vazio ou NA",
     stringr::str_length(clean_cnj(cnj)) > 20 ~ "> 20 digitos",
-    !check_dig_vet(stringr::str_pad(dplyr::if_else(stringr::str_length(nprocesso2) > 20, str_sub(nprocesso2, end = 20), nprocesso2), 20, "left", "0")) ~ "dv invalido ou nao-cnj",
+    !check_dig_vet(stringr::str_pad(dplyr::if_else(stringr::str_length(nprocesso2) > 20, stringr::str_sub(nprocesso2, end = 20), nprocesso2), 20, "left", "0")) ~ "dv invalido ou nao-cnj",
     T ~ "valido"
   )
   return(resp)
