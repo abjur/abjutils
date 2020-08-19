@@ -27,7 +27,7 @@ Description: The Brazilian Jurimetrics Association (ABJ in
 License: MIT + file LICENSE
 URL: https://github.com/abjur/abjutils
 Depends: 
-    R (>= 4.0)
+    R (>= 3.6)
 Imports:
     dplyr,
     magrittr,
