@@ -217,9 +217,8 @@ build_id <- function(id) {
 #'
 #' @export
 separate_cnj <- function(data, col, ...) {
-  col <- rlang::enquo(col)
   tidyr::separate(
-    data, rlang::UQ(col),
+    data, {{col}},
     into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...
   )
 }
