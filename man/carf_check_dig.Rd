@@ -18,7 +18,7 @@ Verifies if a check digit is correct
 }
 \examples{
 {
-carf_check_dig("10120.008427/2003-02")
-carf_check_dig(c("10120008427200302", "10766.000511/96-12"))
+  carf_check_dig("10120.008427/2003-02")
+  carf_check_dig(c("10120008427200302", "10766.000511/96-12"))
 }
 }

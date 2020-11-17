@@ -3,7 +3,7 @@
 \name{check_dig_vet}
 \alias{check_dig_vet}
 \title{Validate check digits for Brazilian lawsuits identification
-number on vectorial scale.}
+number on vectors.}
 \usage{
 check_dig_vet(num)
 }
@@ -18,8 +18,6 @@ Verifies if a check digit is correct
 }
 \examples{
 {
-check_dig_vet(c("0005268-75.2013.8.26.0100", "0004122-85.2010.6.16.0100"))
-
+  check_dig_vet(c("0005268-75.2013.8.26.0100", "0004122-85.2010.6.16.0100"))
 }
-
 }

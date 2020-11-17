@@ -4,8 +4,14 @@
 \alias{lsos}
 \title{Improved list of objects}
 \usage{
-lsos(pos = 1, pattern, order.by = "Size", decreasing = TRUE,
-  head = TRUE, n = 10)
+lsos(
+  pos = 1,
+  pattern,
+  order.by = "Size",
+  decreasing = TRUE,
+  head = TRUE,
+  n = 10
+)
 }
 \arguments{
 \item{pos}{Where to look for the object (see "Details" in \code{\link[base:get]{base::get()}}'s

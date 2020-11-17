@@ -19,7 +19,9 @@ but there isn't a corresponding variable, it creates that variable.
 }
 \examples{
 \dontrun{
-f <- function(a, b = 3) { a*b }
+f <- function(a, b = 3) {
+  a * b
+}
 
 test_fun(f)
 a

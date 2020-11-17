@@ -1,0 +1,4 @@
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-182605574-1

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cnj.R
 \name{verify_cnj}
 \alias{verify_cnj}
-\title{Validate Brazilian lawsuits identification number on vectorial scale.}
+\title{Validate Brazilian lawsuits identification number on vectors.}
 \usage{
 verify_cnj(cnj)
 }
@@ -13,5 +13,5 @@ verify_cnj(cnj)
 Whether or not the check digit is well calculated
 }
 \description{
-Verifies if a brazilian lawsuit identification is a cnj number.
+Verifies if a Brazilian lawsuit identification is a cnj number.
 }

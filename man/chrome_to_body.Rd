@@ -11,7 +11,7 @@ chrome_to_body(x)
 }
 \description{
 To use this function, simply copy the Query String
-Parameters returned by Chrome when analysing the network flow of
+Parameters returned by Chrome when analyzing the network flow of
 a web page. Paste these QSPs into an R string with double quotes
 (as you would to create any string) and pass it to
 \code{chrome_to_body()}; the function will print to the console a

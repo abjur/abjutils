@@ -10,30 +10,25 @@ verify_length <- function(val) {
 }
 
 #' @title Calculate check digit for CARF
-#' 
+#'
 #' @description Returns the check digit of a CARF number or full number with
 #' the check digit.
-#' 
-#' @param id Lawsuit number (including trailling zeros), excluding
+#'
+#' @param id Lawsuit number (including trailing zeros), excluding
 #' the check digit.
 #' @param build Whether or not the function return the complete number
 #' (or only the check digits)?
 #' @param verify Verify if number is well formed (gives error if it's not)
-#' 
+#'
 #'
 #' @return The check digits or the complete identification number
-#'   
-#' @examples {
-#' carf_calc_dig("10120.008427/2003", build = TRUE)
-#' carf_calc_dig("15374.002430/99", build = FALSE)
-#' carf_calc_dig(c("101200084272003", "1537400243099"))
-#' 
-#' # will fail
-#' \donttest{
-#' carf_calc_dig("10766.000511/96-12")
+#'
+#' @examples
+#' {
+#'   carf_calc_dig("10120.008427/2003", build = TRUE)
+#'   carf_calc_dig("15374.002430/99", build = FALSE)
+#'   carf_calc_dig(c("101200084272003", "1537400243099"))
 #' }
-#' }
-#' 
 #' @export
 carf_calc_dig <- function(id, build = FALSE, verify = TRUE) {
   val <- gsub("[^0-9]", "", id)
@@ -60,16 +55,17 @@ carf_calc_dig <- function(id, build = FALSE, verify = TRUE) {
 
 #' @title Validate check digits for Brazilian lawsuits identification
 #' number
-#' 
+#'
 #' @description Verifies if a check digit is correct
-#' 
+#'
 #' @param id String containing the complete lawsuit number
-#' 
+#'
 #' @return Whether or not the check digit is well calculated
-#'   
-#' @examples {
-#' carf_check_dig("10120.008427/2003-02")
-#' carf_check_dig(c("10120008427200302", "10766.000511/96-12"))
+#'
+#' @examples
+#' {
+#'   carf_check_dig("10120.008427/2003-02")
+#'   carf_check_dig(c("10120008427200302", "10766.000511/96-12"))
 #' }
 #' @export
 carf_check_dig <- function(id) {
@@ -81,9 +77,9 @@ carf_check_dig <- function(id) {
 }
 
 #' Add separators to CARF lawsuits
-#' 
+#'
 #' @param id One or more lawsuit ids
-#' 
+#'
 #' @export
 carf_build_id <- function(id) {
   val <- gsub("[^0-9]", "", id)
@@ -92,6 +88,6 @@ carf_build_id <- function(id) {
     pattern <- "\\1.\\2/\\3-\\4"
     gsub(mask, pattern, val)
   } else {
-    stop ("Length must be 15 or 17.")
+    stop("Length must be 15 or 17.")
   }
 }

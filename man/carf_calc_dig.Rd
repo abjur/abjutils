@@ -7,7 +7,7 @@
 carf_calc_dig(id, build = FALSE, verify = TRUE)
 }
 \arguments{
-\item{id}{Lawsuit number (including trailling zeros), excluding
+\item{id}{Lawsuit number (including trailing zeros), excluding
 the check digit.}
 
 \item{build}{Whether or not the function return the complete number
@@ -24,14 +24,8 @@ the check digit.
 }
 \examples{
 {
-carf_calc_dig("10120.008427/2003", build = TRUE)
-carf_calc_dig("15374.002430/99", build = FALSE)
-carf_calc_dig(c("101200084272003", "1537400243099"))
-
-# will fail
-\donttest{
-carf_calc_dig("10766.000511/96-12")
+  carf_calc_dig("10120.008427/2003", build = TRUE)
+  carf_calc_dig("15374.002430/99", build = FALSE)
+  carf_calc_dig(c("101200084272003", "1537400243099"))
 }
-}
-
 }

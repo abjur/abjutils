@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{reais}
 \alias{reais}
-\title{Convert brazilian currency values (text) to numeric}
+\title{Convert Brazilian currency values (text) to numeric}
 \usage{
 reais(x)
 }
@@ -10,5 +10,5 @@ reais(x)
 \item{x}{A currency vector. Ex: c("R$ 10.000,00", "R$ 123,00")}
 }
 \description{
-Convert brazilian currency values (text) to numeric
+Convert Brazilian currency values (text) to numeric
 }

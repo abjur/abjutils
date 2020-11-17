@@ -25,9 +25,8 @@ parts of the IDs given the following correspondence:
 }
 }
 \examples{
-{
-extract_parts("001040620018260004", "N")
-extract_parts("001040620018260004", c("N", "A", "O"))
+\dontrun{
+  extract_parts("001040620018260004", "N")
+  extract_parts("001040620018260004", c("N", "A", "O"))
 }
-
 }
