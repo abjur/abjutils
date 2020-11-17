@@ -14,6 +14,11 @@ Authors@R:
              role = "aut",
              email = "julio.trecenti@gmail.com",
              comment = c(ORCID = "0000-0002-1680-6389")),
+      person(given = "Katerine",
+             family = "Witkoski",
+             role = c("ctb"),
+             email = "kwitkoski@abj.org.br",
+             comment = c(ORCID = "0000-0002-3691-6569")),
       person(given = "Associação Brasileira de Jurimetria",
              role = c("cph", "fnd")))
 Description: The Brazilian Jurimetrics Association (ABJ in
