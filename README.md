@@ -5,11 +5,9 @@
 
 <!-- badges: start -->
 
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/abjur/abjutils?branch=master&svg=true)](https://ci.appveyor.com/project/abjur/abjutils/branch/master)
-[![Travis-CI Build
-Status](https://travis-ci.org/abjur/abjutils.svg?branch=master)](https://travis-ci.org/abjur/abjutils)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/abjutils)](https://cran.r-project.org/package=abjutils)
+[![R build
+status](https://github.com/abjur/abjutils/workflows/R-CMD-check/badge.svg)](https://github.com/abjur/abjutils/actions)
 <!-- badges: end -->
 
 ## Visão Geral

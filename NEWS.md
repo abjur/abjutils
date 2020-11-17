@@ -1,5 +1,9 @@
 # abjutils (development version)
 
+* Updated README
+* Added pkgdown
+* Changed travis/appveyor to github actions
+
 # abjutils 0.3.1
 
 * Fixed maintainer information
