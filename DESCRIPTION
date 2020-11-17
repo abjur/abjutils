@@ -36,7 +36,8 @@ Imports:
     rstudioapi,
     stringi,
     stringr,
-    tidyr
+    tidyr,
+    tibble
 Suggests: 
     testthat
 Encoding: UTF-8
