@@ -71,9 +71,43 @@ devtools::install_github("abjur/abjutils")
 
 ## Como Usar
 
+Exemplo 1:
+
+``` r
+#Para Remover separadores de IDs de processos judiciais
+ abjutils::clean_id(c("1025736-09.2014.8.26.0100","0043877-64.2012.8.26.0100","1013689-61.2018.8.26.0100"))
+#> [1] "10257360920148260100" "00438776420128260100" "10136896120188260100"
+```
+
+Exemplo 2:
+
+``` r
+#Extrair partes dos IDs dos processos
+abjutils::extract_parts(c("1025736-09.2014.8.26.0100","0043877-64.2012.8.26.0100","1013689-61.2018.8.26.0100"))
+#> [[1]]
+#>         N         D         A         J         T         O 
+#> "1025736"      "09"    "2014"       "8"      "26"    "0100" 
+#> 
+#> [[2]]
+#>         N         D         A         J         T         O 
+#> "0043877"      "64"    "2012"       "8"      "26"    "0100" 
+#> 
+#> [[3]]
+#>         N         D         A         J         T         O 
+#> "1013689"      "61"    "2018"       "8"      "26"    "0100"
+```
+
+Exemplo 3:
+
+``` r
+#Remover diacríticos de uma string
+abjutils::rm_accent("acórdão")
+#> [1] "acordao"
+```
+
 ## Requisitos
 
-`{abjutils}` Requer uma versão do R superior ou igual a 3.6.
+`{abjutils}` requer uma versão do R superior ou igual a 3.6.
 
 ## Licença
 
@@ -81,7 +115,7 @@ O sistema de gerenciamento de conteúdo `{abjutils}` é lançado sob os
 termos da [MIT + file
 LICENSE](https://github.com/abjur/abjutils/blob/master/LICENSE)
 
-## Citations
+#### Citations
 
 To cite this package, use `citation("abjutils")`:
 
