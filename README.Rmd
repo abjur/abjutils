@@ -71,7 +71,7 @@ Função  | Descrição
 `sample_cnj()`  | Cria uma amostra aleatória de processos judiciais 
 `separate_cnj()`| Divide uma coluna com IDs de processos em 6 colunas com suas partes
 `tabela()`      | Produz tabela de contingência dos elementos de um vetor
-`test-fun()`    | Verifica se todos os argumentos de outro função já tem valores atribuídos
+`test-fun()`    | Verifica se todos os argumentos de outra função já tem valores atribuídos
 `verify_cnj()`  | Verifica se a identificação de um processo brasileiro é um número CNJ
 `write_data()`  | Atalho para gravar o arquivo no diretório "data /"
 

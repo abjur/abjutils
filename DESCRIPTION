@@ -19,7 +19,7 @@ Authors@R:
              role = c("ctb"),
              email = "kwitkoski@abj.org.br",
              comment = c(ORCID = "0000-0002-3691-6569")),
-      person(given = "Associação Brasileira de Jurimetria",
+      person(given = "Associação Brasileira de Jurimetria",    
              role = c("cph", "fnd")))
 Description: The Brazilian Jurimetrics Association (ABJ in
     Portuguese, see <https://abj.org.br/> for more information) is
