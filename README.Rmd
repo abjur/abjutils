@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# abjutils
+# abjutils <a href='http://abjur.github.io/abjutils/'><img src='man/figures/logo.png' align="right" height="138.5" /></a>
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/abjutils)](https://cran.r-project.org/package=abjutils)
