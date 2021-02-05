@@ -40,7 +40,7 @@ remotes::install_github("abjur/abjutils")
 ## Lista de funções
 
 | Função              | Descrição                                                                 |
-| ------------------- | ------------------------------------------------------------------------- |
+|---------------------|---------------------------------------------------------------------------|
 | `build_id()`        | Adiciona separadores a IDs de processos                                   |
 | `calc_dig()`        | Verifica os números de um processo no fomato estruturado pelo CNJ         |
 | `carf_build_id()`   | Adiciona separadores para ações judiciais do CARF                         |
@@ -118,14 +118,14 @@ LICENSE](https://github.com/abjur/abjutils/blob/master/LICENSE)
 To cite this package, use `citation("abjutils")`:
 
     To cite package ‘abjutils’ in publications use:
-    
+
       Associacao Brasileira de Jurimetria (2020). abjutils:
       Useful Tools for Jurimetrical Analysis Used by the
       Brazilian Jurimetrics Association. R package version
       0.0.1. https://github.com/abjur/abjutils
-    
+
     A BibTeX entry for LaTeX users is
-    
+
       @Manual{,
         title = {abjutils: Useful Tools for Jurimetrical Analysis Used by the Brazilian Jurimetrics Association},
         author = {Associacao Brasileira de Jurimetria},
