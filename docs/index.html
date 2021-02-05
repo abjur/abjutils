@@ -61,7 +61,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/abjur/abjutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -108,21 +108,21 @@
 <h2 class="hasAnchor">
 <a href="#para-instalar" class="anchor"></a>Para Instalar</h2>
 <p>Você pode instalar a versão mais recente do <a href="https://github.com/abjur/abjutils">abjutils</a> com:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># Para instalar a versão CRAN</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Para instalar a versão CRAN</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"abjutils"</span><span class="op">)</span>
 
 <span class="co"># Para instalar a versão GitHub (dev)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"abjur/abjutils"</span><span class="op">)</span></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"abjur/abjutils"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="lista-de-funções" class="section level2">
 <h2 class="hasAnchor">
 <a href="#lista-de-fun%C3%A7%C3%B5es" class="anchor"></a>Lista de funções</h2>
 <table class="table">
 <colgroup>
-<col width="20%">
-<col width="79%">
+<col width="21%">
+<col width="78%">
 </colgroup>
 <thead><tr class="header">
 <th>Função</th>
@@ -236,13 +236,13 @@
 <h2 class="hasAnchor">
 <a href="#como-usar" class="anchor"></a>Como Usar</h2>
 <p>Exemplo 1:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co"># Para Remover separadores de IDs de processos judiciais</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Para Remover separadores de IDs de processos judiciais</span>
  <span class="fu">abjutils</span><span class="fu">::</span><span class="fu"><a href="reference/clean_id.html">clean_id</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1025736-09.2014.8.26.0100"</span>,<span class="st">"0043877-64.2012.8.26.0100"</span>,<span class="st">"1013689-61.2018.8.26.0100"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "10257360920148260100" "00438776420128260100" "10136896120188260100"</span></pre></div>
+<span class="co">#&gt; [1] "10257360920148260100" "00438776420128260100" "10136896120188260100"</span></code></pre></div>
 <p>Exemplo 2:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="co"># Extrair partes dos IDs dos processos</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Extrair partes dos IDs dos processos</span>
 <span class="fu">abjutils</span><span class="fu">::</span><span class="fu"><a href="reference/extract_parts.html">extract_parts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1025736-09.2014.8.26.0100"</span>,<span class="st">"0043877-64.2012.8.26.0100"</span>,<span class="st">"1013689-61.2018.8.26.0100"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt;         N         D         A         J         T         O </span>
@@ -254,12 +254,12 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [[3]]</span>
 <span class="co">#&gt;         N         D         A         J         T         O </span>
-<span class="co">#&gt; "1013689"      "61"    "2018"       "8"      "26"    "0100"</span></pre></div>
+<span class="co">#&gt; "1013689"      "61"    "2018"       "8"      "26"    "0100"</span></code></pre></div>
 <p>Exemplo 3:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="co"># Remover diacríticos de uma string</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Remover diacríticos de uma string</span>
 <span class="fu">abjutils</span><span class="fu">::</span><span class="fu"><a href="reference/rm_accent.html">rm_accent</a></span><span class="op">(</span><span class="st">"acórdão"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "acordao"</span></pre></div>
+<span class="co">#&gt; [1] "acordao"</span></code></pre></div>
 </div>
 <div id="requisitos" class="section level2">
 <h2 class="hasAnchor">
@@ -274,22 +274,22 @@
 <h4 class="hasAnchor">
 <a href="#citations" class="anchor"></a>Citations</h4>
 <p>To cite this package, use <code><a href="https://rdrr.io/r/utils/citation.html">citation("abjutils")</a></code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>To cite package ‘abjutils’ <span class="cf">in</span> publications use<span class="op">:</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span>Associacao Brasileira de <span class="kw">Jurimetria</span> (<span class="dv">2020</span>). abjutils<span class="op">:</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span>Useful Tools <span class="cf">for</span> Jurimetrical Analysis Used by the</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  Brazilian Jurimetrics Association. R package version</span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">1.</span> https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>abjur<span class="op">/</span>abjutils</span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="op">@</span>Manual{,</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    title =<span class="st"> </span>{abjutils<span class="op">:</span><span class="st"> </span>Useful Tools <span class="cf">for</span> Jurimetrical Analysis Used by the Brazilian Jurimetrics Association},</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    author =<span class="st"> </span>{Associacao Brasileira de Jurimetria},</span>
-<span id="cb5-13"><a href="#cb5-13"></a>    year =<span class="st"> </span>{<span class="dv">2020</span>},</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    note =<span class="st"> </span>{R package version <span class="dv">0</span>.<span class="fl">3.0</span>},</span>
-<span id="cb5-15"><a href="#cb5-15"></a>    url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>abjur<span class="op">/</span>abjutils},</span>
-<span id="cb5-16"><a href="#cb5-16"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>To cite package ‘abjutils’ <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  Associacao Brasileira de <span class="fu">Jurimetria</span> (<span class="dv">2020</span>). abjutils<span class="sc">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  Useful Tools <span class="cf">for</span> Jurimetrical Analysis Used by the</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  Brazilian Jurimetrics Association. R package version</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">1.</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>abjur<span class="sc">/</span>abjutils</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="sc">@</span>Manual{,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">=</span> {abjutils<span class="sc">:</span> Useful Tools <span class="cf">for</span> Jurimetrical Analysis Used by the Brazilian Jurimetrics Association},</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    author <span class="ot">=</span> {Associacao Brasileira de Jurimetria},</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2020</span>},</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    note <span class="ot">=</span> {R package version <span class="dv">0</span>.<span class="fl">3.0</span>},</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>abjur<span class="sc">/</span>abjutils},</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 </div>
 </div>
 </div>
