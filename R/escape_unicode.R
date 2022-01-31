@@ -10,11 +10,8 @@ escape_unicode <- function() {
 
   # Escape accented characters from one character vector
   escape <- . %>%
-    stringi::stri_escape_unicode() %>%
-    stringi::stri_replace_all_fixed("\\\\", "#$!*%") %>%
-    stringi::stri_replace_all_fixed("\\", "") %>%
-    stringi::stri_replace_all_fixed("#$!*%", "\\") %>%
-    stringr::str_replace_all("(u00[:alnum:]{2})", "\\\\\\1")
+    iconv("UTF-8", "ASCII", sub = "Unicode") %>%
+    stringr::str_replace_all("<U\\+([0-9A-F]+)>", "\\\\u\\1")
 
   # Escape accented characters from every line of the document
   escape_all <- . %>%
