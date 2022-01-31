@@ -126,8 +126,8 @@ verify_cnj <- function(cnj) {
 #'
 #' @examples
 #' \dontrun{
-#'   extract_parts("001040620018260004", "N")
-#'   extract_parts("001040620018260004", c("N", "A", "O"))
+#' extract_parts("001040620018260004", "N")
+#' extract_parts("001040620018260004", c("N", "A", "O"))
 #' }
 #' @export
 extract_parts <- function(id, parts = "") {
@@ -218,7 +218,7 @@ build_id <- function(id) {
 #' @export
 separate_cnj <- function(data, col, ...) {
   tidyr::separate(
-    data, {{col}},
+    data, {{ col }},
     into = c("N", "D", "A", "J", "T", "O"), sep = "[\\-\\.]", ...
   )
 }

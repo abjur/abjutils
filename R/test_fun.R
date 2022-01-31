@@ -46,12 +46,10 @@ test_fun <- function(f, force_default = FALSE) {
       if (force_default) {
         assign(args[[i]], eval(vals[[i]]), envir = rlang::env_parent())
       }
-    }
-    else if (!rlang::is_missing(vals[[i]])) {
+    } else if (!rlang::is_missing(vals[[i]])) {
       assign(args[[i]], eval(vals[[i]]), envir = rlang::env_parent())
       does_exist[[i]] <- TRUE
-    }
-    else {
+    } else {
       message(paste0("Argument named '", args[[i]], "' needs a value!"))
     }
   }

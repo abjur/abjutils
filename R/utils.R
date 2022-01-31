@@ -82,15 +82,19 @@ rm_accent <- function(x) {
 #' @export
 lsos <- function(pos = 1, pattern, order.by = "Size",
                  decreasing = TRUE, head = TRUE, n = 10) {
-  napply <- function(names, fn) sapply(names, function(x)
-      fn(get(x, pos = pos)))
+  napply <- function(names, fn) {
+    sapply(names, function(x) {
+      fn(get(x, pos = pos))
+    })
+  }
   names <- ls(pos = pos, pattern = pattern)
   obj.class <- napply(names, function(x) as.character(class(x))[1])
   obj.mode <- napply(names, mode)
   obj.type <- ifelse(is.na(obj.class), obj.mode, obj.class)
   obj.size <- napply(names, object.size)
-  obj.dim <- t(napply(names, function(x)
-    as.numeric(dim(x))[1:2]))
+  obj.dim <- t(napply(names, function(x) {
+    as.numeric(dim(x))[1:2]
+  }))
   vec <- is.na(obj.dim)[, 1] & (obj.type != "function")
   obj.dim[vec, 1] <- napply(names, length)[vec]
   out <- data.frame(obj.type, obj.size, obj.dim)
