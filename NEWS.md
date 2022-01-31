@@ -1,4 +1,4 @@
-# abjutils (development version)
+# abjutils 0.3.2
 
 * Updated README
 * Added pkgdown
