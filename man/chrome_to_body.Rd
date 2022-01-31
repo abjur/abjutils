@@ -16,9 +16,9 @@ a web page. Paste these QSPs into an R string with double quotes
 (as you would to create any string) and pass it to
 \code{chrome_to_body()}; the function will print to the console a
 formatted command that creates a list with the QSPs. This list
-works perfectly with \code{\link[httr:GET]{httr::GET()}} and \code{\link[httr:POST]{httr::POST()}} so that
+works perfectly with \code{httr::GET()} and \code{httr::POST()} so that
 you can easily reproduce a website's behavior.
 }
 \seealso{
-\code{\link[httr:GET]{httr::GET()}}, \code{\link[httr:POST]{httr::POST()}}
+\code{httr::GET()}, \code{httr::POST()}
 }

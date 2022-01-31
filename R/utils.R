@@ -7,12 +7,12 @@
 #' (as you would to create any string) and pass it to
 #' `chrome_to_body()`; the function will print to the console a
 #' formatted command that creates a list with the QSPs. This list
-#' works perfectly with [httr::GET()] and [httr::POST()] so that
+#' works perfectly with `httr::GET()` and `httr::POST()` so that
 #' you can easily reproduce a website's behavior.
 #'
 #' @param x A string with Chrome's Query String Parameters
 #'
-#' @seealso [httr::GET()], [httr::POST()]
+#' @seealso `httr::GET()`, `httr::POST()`
 #'
 #' @export
 chrome_to_body <- function(x) {
