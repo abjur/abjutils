@@ -3,7 +3,7 @@ context("Funcoes de separate")
 
 test_that("separate_cnj funciona sem warning", {
   library(magrittr)
-  da <- tibble::tibble(
+  da <- data.frame(
     a = "1000315-72.2016.8.26.0156"
   )
 

@@ -33,7 +33,6 @@ Imports:
     rstudioapi,
     stringi,
     stringr,
-    tibble,
     tidyr
 Suggests:
     testthat
