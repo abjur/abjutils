@@ -1,37 +1,29 @@
 Type: Package
 Package: abjutils
-Title: Useful Tools for Jurimetrical Analysis Used by the
-    Brazilian Jurimetrics Association
+Title: Useful Tools for Jurimetrical Analysis Used by the Brazilian
+    Jurimetrics Association
 Version: 0.3.1.9000
 Date: 2020-08-12
-Authors@R:
-    c(person(given = "Caio",
-             family = "Lente",
-             role = c("aut", "cre"),
-             email = "clente@abj.org.br"),
-      person(given = "Julio",
-             family = "Trecenti",
-             role = "aut",
-             email = "julio.trecenti@gmail.com",
-             comment = c(ORCID = "0000-0002-1680-6389")),
-      person(given = "Katerine",
-             family = "Witkoski",
-             role = c("ctb"),
-             email = "kwitkoski@abj.org.br",
-             comment = c(ORCID = "0000-0002-3691-6569")),
-      person(given = "Associação Brasileira de Jurimetria",    
-             role = c("cph", "fnd")))
-Description: The Brazilian Jurimetrics Association (ABJ in
-    Portuguese, see <https://abj.org.br/> for more information) is
-    a non-profit organization which aims to investigate and promote the
-    use of statistics and probability in the study of Law and its
-    institutions.  This package implements general purpose tools used by
-    ABJ, such as functions for sampling and basic manipulation of
-    Brazilian lawsuits identification number. It also implements functions
-    for text cleaning, such as accentuation removal.
+Authors@R:c(
+    person("Caio", "Lente", , "clente@abj.org.br", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8473-069X")),
+    person("Julio", "Trecenti", , "julio.trecenti@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0002-1680-6389")),
+    person("Katerine", "Witkoski", , "kwitkoski@abj.org.br", role = "ctb",
+           comment = c(ORCID = "0000-0002-3691-6569")),
+    person("Associação Brasileira de Jurimetria", role = c("cph", "fnd"))
+  )
+Description: The Brazilian Jurimetrics Association (ABJ in Portuguese, see
+    <https://abj.org.br/> for more information) is a non-profit
+    organization which aims to investigate and promote the use of
+    statistics and probability in the study of Law and its institutions.
+    This package implements general purpose tools used by ABJ, such as
+    functions for sampling and basic manipulation of Brazilian lawsuits
+    identification number. It also implements functions for text cleaning,
+    such as accentuation removal.
 License: MIT + file LICENSE
 URL: https://github.com/abjur/abjutils
-Depends: 
+Depends:
     R (>= 3.6)
 Imports:
     dplyr,
@@ -41,12 +33,11 @@ Imports:
     rstudioapi,
     stringi,
     stringr,
-    tidyr,
-    tibble
-Suggests: 
+    tibble,
+    tidyr
+Suggests:
     testthat
 Encoding: UTF-8
 LazyData: TRUE
-Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace",
-    "collate"))
-RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
+RoxygenNote: 7.1.2
