@@ -2,7 +2,7 @@ Type: Package
 Package: abjutils
 Title: Useful Tools for Jurimetrical Analysis Used by the Brazilian
     Jurimetrics Association
-Version: 0.3.2
+Version: 0.3.2.9000
 Date: 2022-01-31
 Authors@R: c(
     person("Caio", "Lente", , "clente@abj.org.br", role = c("aut", "cre"),
